@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+  --primary: #003876;
+  --primary-dark: #002855;
+  --primary-light: #E8F0FE;
+  --accent: #0066CC;
+  --dalgu-blue: #5B9BD5;
+  --text: #1A1A1A;
+  --text-sub: #666666;
+  --bg-alt: #F5F5F5;
+  --safety-green: #2E8B57;
+  --warning: #E67E22;
+  --danger: #E74C3C;
+}
+
+body {
+  color: var(--text);
+  background: #ffffff;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* 부드러운 스크롤 */
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
