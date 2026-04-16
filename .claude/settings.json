@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo:*)",
+      "Bash(git -C \"c:/Users/DGIST/Desktop/웹페이지\" remote -v)",
+      "Edit(/.claude/skills/content-builder/**)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(mkdir *)",
+      "Bash(ls *)",
+      "Bash(cp *)",
+      "Read(//c/Users/DGIST/.claude/projects/c--Users-DGIST-Desktop-----/memory/**)",
+      "WebSearch",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(start http://localhost:3000)"
+    ]
+  }
+}

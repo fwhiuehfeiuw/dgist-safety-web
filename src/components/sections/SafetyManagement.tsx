@@ -1,96 +1,83 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Award, FileText, Target } from 'lucide-react';
-import { useLanguage, translations } from '@/lib/i18n';
-import { SAFETY_GOAL } from '@/lib/constants';
+import Image from 'next/image';
+import { FileText, Shield } from 'lucide-react';
+import { useLanguage } from '@/lib/i18n';
+import { REGULATIONS } from '@/lib/constants';
 import SectionWrapper, { SectionTitle } from '@/components/layout/SectionWrapper';
+
+const regStyles = [
+  { key: 'safety' as const, icon: FileText, gradient: 'from-[#003876] to-[#0066CC]', dotColor: 'bg-[#0066CC]' },
+  { key: 'security' as const, icon: Shield, gradient: 'from-[#5B4FA0] to-[#7B68EE]', dotColor: 'bg-[#7B68EE]' },
+];
 
 export default function SafetyManagement() {
   const { lang } = useLanguage();
-  const tr = translations[lang];
 
   return (
     <SectionWrapper bgColor="bg-white">
-      <SectionTitle>{tr.managementTitle}</SectionTitle>
+      <SectionTitle>{lang === 'ko' ? '안전보건경영방침' : 'Safety & Health Management Policy'}</SectionTitle>
 
-      {/* 안전보건 목표 배너 */}
+      {/* 경영방침 이미지 */}
       <motion.div
-        className="relative mb-10 rounded-2xl overflow-hidden bg-gradient-to-r from-[#002855] via-[#003876] to-[#0066CC] p-6 md:p-8"
-        initial={{ opacity: 0, scale: 0.97 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-sm border border-gray-100 mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        {/* 배경 장식 */}
-        <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/3 -translate-x-1/3" />
-
-        <div className="relative flex items-center gap-4 justify-center">
-          <Target className="w-8 h-8 md:w-10 md:h-10 text-white/80 flex-shrink-0" />
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white text-center">
-            {lang === 'ko' ? SAFETY_GOAL.titleKo : SAFETY_GOAL.titleEn}
-          </h3>
-        </div>
+        <Image
+          src="/images/safety-policy.jpg"
+          alt={lang === 'ko' ? 'DGIST 안전보건 경영방침' : 'DGIST Safety and Health Management Policy'}
+          width={1200}
+          height={1600}
+          className="w-full h-auto"
+        />
       </motion.div>
 
-      {/* ISO 45001 + 경영방침 2컬럼 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* ISO 45001 인증 */}
-        <motion.div
-          className="bg-[#F5F5F5] rounded-2xl p-6 border border-gray-100"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#003876] to-[#0066CC] flex items-center justify-center shadow-sm">
-              <Award className="w-5 h-5 text-white" />
-            </div>
-            <h3 className="text-lg font-bold text-[#1A1A1A]">{tr.isoTitle}</h3>
-          </div>
-          <p className="text-sm text-[#666666] mb-5">{tr.isoDesc}</p>
+      {/* 소관 규정 */}
+      <div className="max-w-3xl mx-auto">
+        <h3 className="text-lg font-bold text-[#003876] text-center mb-6">
+          {lang === 'ko' ? '소관 규정' : 'Regulations'}
+        </h3>
 
-          {/* 이미지 플레이스홀더 */}
-          <div className="aspect-[4/3] rounded-xl bg-gray-200 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-2">
-            <Award className="w-12 h-12 text-gray-400" />
-            <span className="text-sm text-gray-400 font-medium">
-              {lang === 'ko' ? 'ISO 45001 인증서' : 'ISO 45001 Certificate'}
-            </span>
-            <span className="text-xs text-gray-300">
-              {lang === 'ko' ? '이미지 준비 중' : 'Image coming soon'}
-            </span>
-          </div>
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {regStyles.map((section, sIndex) => {
+            const Icon = section.icon;
+            const data = REGULATIONS[section.key];
+            return (
+              <motion.div
+                key={section.key}
+                className="relative bg-[#F5F5F5] rounded-xl p-5 overflow-hidden"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: sIndex * 0.1 }}
+              >
+                <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${section.gradient}`} />
 
-        {/* 안전보건 경영방침 */}
-        <motion.div
-          className="bg-[#F5F5F5] rounded-2xl p-6 border border-gray-100"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#2E8B57] to-[#3CB371] flex items-center justify-center shadow-sm">
-              <FileText className="w-5 h-5 text-white" />
-            </div>
-            <h3 className="text-lg font-bold text-[#1A1A1A]">{tr.policyTitle}</h3>
-          </div>
-          <p className="text-sm text-[#666666] mb-5">{tr.policyDesc}</p>
+                <div className="flex items-center gap-2.5 mb-4 pl-3">
+                  <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${section.gradient} flex items-center justify-center`}>
+                    <Icon className="w-4 h-4 text-white" />
+                  </div>
+                  <span className="text-sm font-bold text-[#1A1A1A]">
+                    {lang === 'ko' ? data.titleKo : data.titleEn}
+                  </span>
+                </div>
 
-          {/* 이미지 플레이스홀더 */}
-          <div className="aspect-[4/3] rounded-xl bg-gray-200 border-2 border-dashed border-gray-300 flex flex-col items-center justify-center gap-2">
-            <FileText className="w-12 h-12 text-gray-400" />
-            <span className="text-sm text-gray-400 font-medium">
-              {lang === 'ko' ? '안전보건 경영방침' : 'Safety & Health Policy'}
-            </span>
-            <span className="text-xs text-gray-300">
-              {lang === 'ko' ? '이미지 준비 중' : 'Image coming soon'}
-            </span>
-          </div>
-        </motion.div>
+                <ul className="space-y-2 pl-3">
+                  {data.items.map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-[#333]">
+                      <span className={`w-1.5 h-1.5 rounded-full ${section.dotColor} flex-shrink-0`} />
+                      {lang === 'ko' ? item.ko : item.en}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </SectionWrapper>
   );

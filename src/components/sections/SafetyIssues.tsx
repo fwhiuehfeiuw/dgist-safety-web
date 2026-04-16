@@ -6,12 +6,12 @@ import { AlertTriangle, ExternalLink } from 'lucide-react';
 import { useLanguage, translations } from '@/lib/i18n';
 import { supabase } from '@/lib/supabase';
 import { EXTERNAL_LINKS } from '@/lib/constants';
-import { SectionTitle } from '@/components/layout/SectionWrapper';
+import SectionWrapper, { SectionTitle } from '@/components/layout/SectionWrapper';
 import { Skeleton } from '@/components/ui/Skeleton';
 
 interface SafetyIssue {
   id: string;
-  keyword: string;
+  keyword_ko: string;
   keyword_en?: string;
   date: string;
   url?: string;
@@ -61,12 +61,11 @@ export default function SafetyIssues() {
 
   // labs.go.kr 바로가기 데이터
   const externalLinks = [
-    EXTERNAL_LINKS.labsIssues,
-    EXTERNAL_LINKS.labsAccidents,
+    EXTERNAL_LINKS.labsSafety,
   ];
 
   return (
-    <div className="mt-16">
+    <SectionWrapper bgColor="bg-[#F5F5F5]">
       <SectionTitle>{tr.issuesTitle}</SectionTitle>
 
       {/* 로딩 */}
@@ -110,7 +109,7 @@ export default function SafetyIssues() {
                 >
                   {lang === 'en' && issue.keyword_en
                     ? issue.keyword_en
-                    : issue.keyword}
+                    : issue.keyword_ko}
                 </span>
                 {issue.url && (
                   <ExternalLink className="w-3.5 h-3.5 text-gray-300 flex-shrink-0" />
@@ -166,6 +165,6 @@ export default function SafetyIssues() {
           </motion.a>
         ))}
       </div>
-    </div>
+    </SectionWrapper>
   );
 }

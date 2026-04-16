@@ -6,14 +6,10 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import MobileFAB from '@/components/layout/MobileFAB';
 import HeroSection from '@/components/sections/HeroSection';
-import QuickLinksSection from '@/components/sections/QuickLinksSection';
-import SafetyNews from '@/components/sections/SafetyNews';
-import SafetyIssues from '@/components/sections/SafetyIssues';
+import SafetyInfoSection from '@/components/sections/SafetyInfoSection';
 import TeamOverview from '@/components/sections/TeamOverview';
 import SafetyManagement from '@/components/sections/SafetyManagement';
-import ContactSection from '@/components/sections/ContactSection';
 import SafetyPrograms from '@/components/sections/SafetyPrograms';
-import Regulations from '@/components/sections/Regulations';
 import EmphasisWeek from '@/components/sections/EmphasisWeek';
 import LocationSection from '@/components/sections/LocationSection';
 
@@ -37,14 +33,10 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <QuickLinksSection />
-        <SafetyNews />
-        <SafetyIssues />
+        <SafetyInfoSection />
         <TeamOverview />
         <SafetyManagement />
-        <ContactSection />
         <SafetyPrograms />
-        <Regulations />
         <EmphasisWeek />
         <LocationSection />
       </main>

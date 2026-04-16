@@ -11,8 +11,8 @@ interface SafetyProgram {
   id: string;
   title_ko: string;
   title_en: string;
-  description_ko: string;
-  description_en: string;
+  desc_ko: string;
+  desc_en: string;
   color: string;
   sort_order: number;
 }
@@ -49,7 +49,7 @@ export default function SafetyPrograms() {
 
       {/* 로딩 스켈레톤 */}
       {loading && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {Array.from({ length: 10 }).map((_, i) => (
             <CardSkeleton key={i} />
           ))}
@@ -63,28 +63,34 @@ export default function SafetyPrograms() {
 
       {/* 프로그램 카드 그리드: 5x2 */}
       {!loading && programs.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {programs.map((program, index) => (
             <motion.div
               key={program.id}
-              className="bg-white rounded-xl overflow-hidden shadow-sm"
+              className="group bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
+              transition={{ duration: 0.3, delay: index * 0.04 }}
             >
               {/* 상단 컬러 바 */}
               <div
-                className="h-1.5 w-full"
+                className="h-1.5 w-full transition-all duration-200 group-hover:h-2"
                 style={{ backgroundColor: program.color }}
               />
               {/* 카드 내용 */}
               <div className="p-4">
-                <h3 className="text-sm font-bold text-[#1A1A1A] mb-1.5">
+                <div
+                  className="w-8 h-8 rounded-lg flex items-center justify-center mb-3 text-white text-xs font-bold"
+                  style={{ backgroundColor: program.color + '20', color: program.color }}
+                >
+                  {String(program.sort_order).padStart(2, '0')}
+                </div>
+                <h3 className="text-sm font-bold text-[#1A1A1A] mb-1.5 leading-snug">
                   {lang === 'ko' ? program.title_ko : program.title_en}
                 </h3>
                 <p className="text-xs text-[#666666] leading-relaxed line-clamp-2">
-                  {lang === 'ko' ? program.description_ko : program.description_en}
+                  {lang === 'ko' ? program.desc_ko : program.desc_en}
                 </p>
               </div>
             </motion.div>

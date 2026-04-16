@@ -96,19 +96,14 @@ export const LOCATION = {
   addressKo: '대구광역시 달성군 현풍읍 테크노중앙대로 333 DGIST E1 7층 704호',
   addressEn: '704, 7F, E1, 333 Techno Jungang-daero, Hyeonpung-eup, Dalseong-gun, Daegu, Korea',
   phone: '053-785-1263',
-  mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.8!2d128.7944!3d35.7975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3565e3e1f1f1f1f1%3A0x1f1f1f1f1f1f1f1f!2sDGIST!5e0!3m2!1sko!2skr!4v1234567890',
+  mapEmbedUrl: 'https://maps.google.com/maps?q=DGIST+%EB%8C%80%EA%B5%AC%EA%B2%BD%EB%B6%81%EA%B3%BC%ED%95%99%EA%B8%B0%EC%88%A0%EC%9B%90&t=&z=15&ie=UTF8&iwloc=&output=embed',
 } as const;
 
 export const EXTERNAL_LINKS = {
-  labsIssues: {
-    titleKo: '연구실 안전이슈',
-    titleEn: 'Lab Safety Issues',
-    url: 'https://www.labs.go.kr/brdartcl/boardarticleList.do',
-  },
-  labsAccidents: {
-    titleKo: '연구실 사고사례',
-    titleEn: 'Lab Accident Cases',
-    url: 'https://www.labs.go.kr/brdartcl/boardarticleList.do',
+  labsSafety: {
+    titleKo: '안전이슈 · 사고사례 바로가기',
+    titleEn: 'Safety Issues & Accident Cases',
+    url: 'https://labs.go.kr/',
   },
   dgistNews: {
     titleKo: 'DGIST 보도자료',
@@ -118,9 +113,8 @@ export const EXTERNAL_LINKS = {
 } as const;
 
 export const NAV_ITEMS = [
-  { id: 'quick-links', labelKo: '바로가기', labelEn: 'Quick Links' },
   { id: 'safety-info', labelKo: '안전정보', labelEn: 'Safety Info' },
-  { id: 'team-overview', labelKo: '업무소개', labelEn: 'About Us' },
+  { id: 'team-overview', labelKo: '업무·연락처', labelEn: 'Team & Contact' },
   { id: 'programs', labelKo: '제도', labelEn: 'Programs' },
-  { id: 'contact', labelKo: '연락처', labelEn: 'Contact' },
+  { id: 'location', labelKo: '오시는 길', labelEn: 'Location' },
 ] as const;

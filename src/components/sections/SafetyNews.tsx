@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Newspaper, ExternalLink } from 'lucide-react';
+import { Newspaper, ExternalLink, Calendar } from 'lucide-react';
 import { useLanguage, translations } from '@/lib/i18n';
 import { supabase } from '@/lib/supabase';
 import { EXTERNAL_LINKS } from '@/lib/constants';
 import SectionWrapper, { SectionTitle } from '@/components/layout/SectionWrapper';
-import { CardSkeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/Skeleton';
 
 interface NewsItem {
   id: string;
@@ -15,7 +15,7 @@ interface NewsItem {
   title_en?: string;
   url: string;
   source?: string;
-  published_at: string;
+  date: string;
 }
 
 export default function SafetyNews() {
@@ -31,7 +31,7 @@ export default function SafetyNews() {
         const { data, error: fetchError } = await supabase
           .from('safety_news')
           .select('*')
-          .order('published_at', { ascending: false })
+          .order('date', { ascending: false })
           .limit(5);
 
         if (fetchError) throw fetchError;
@@ -46,7 +46,6 @@ export default function SafetyNews() {
     fetchNews();
   }, []);
 
-  // 날짜 포맷
   function formatDate(dateStr: string): string {
     const date = new Date(dateStr);
     if (lang === 'ko') {
@@ -65,9 +64,12 @@ export default function SafetyNews() {
 
       {/* 로딩 스켈레톤 */}
       {loading && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <CardSkeleton key={i} />
+        <div className="space-y-3">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+              <Skeleton className="h-5 w-3/4 mb-2" />
+              <Skeleton className="h-3 w-1/3" />
+            </div>
           ))}
         </div>
       )}
@@ -104,30 +106,32 @@ export default function SafetyNews() {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between bg-white rounded-xl px-5 py-4 shadow-sm border border-gray-100 hover:border-[#0066CC]/30 transition-all"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="group block bg-white rounded-xl px-5 py-4 shadow-sm border border-gray-100 hover:border-[#0066CC]/30 hover:shadow-md transition-all"
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              whileHover={{ x: 4 }}
+              transition={{ duration: 0.3, delay: index * 0.06 }}
             >
-              <div className="flex-1 min-w-0">
-                <h3 className="text-[#1A1A1A] font-medium truncate group-hover:text-[#0066CC] transition-colors">
-                  {lang === 'en' && item.title_en ? item.title_en : item.title}
-                </h3>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className="text-xs text-[#666666]">
-                    {formatDate(item.published_at)}
-                  </span>
-                  {item.source && (
-                    <>
-                      <span className="text-gray-300">|</span>
-                      <span className="text-xs text-[#666666]">{item.source}</span>
-                    </>
-                  )}
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-[#1A1A1A] font-medium leading-snug group-hover:text-[#0066CC] transition-colors">
+                    {lang === 'en' && item.title_en ? item.title_en : item.title}
+                  </h3>
+                  <div className="flex items-center gap-2 mt-2">
+                    <Calendar className="w-3 h-3 text-[#999]" />
+                    <span className="text-xs text-[#999]">
+                      {formatDate(item.date)}
+                    </span>
+                    {item.source && (
+                      <>
+                        <span className="text-gray-300">·</span>
+                        <span className="text-xs text-[#999]">{item.source}</span>
+                      </>
+                    )}
+                  </div>
                 </div>
+                <ExternalLink className="w-4 h-4 text-gray-300 group-hover:text-[#0066CC] flex-shrink-0 mt-1 transition-colors" />
               </div>
-              <ExternalLink className="w-4 h-4 text-gray-300 group-hover:text-[#0066CC] flex-shrink-0 ml-3 transition-colors" />
             </motion.a>
           ))}
 

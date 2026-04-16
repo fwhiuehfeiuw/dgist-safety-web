@@ -52,8 +52,13 @@ export default function HeroSection() {
               {tr.heroDesc}
             </p>
 
+            {/* 바로가기 라벨 */}
+            <p className="text-white/50 text-xs font-medium uppercase tracking-widest mb-3">
+              {lang === 'ko' ? '바로가기' : 'Quick Links'}
+            </p>
+
             {/* CTA 버튼 */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
               {/* 기본 CTA: AI 챗봇 — 강조 스타일 */}
               <motion.a
                 href={HERO_CTA.primary.url}
@@ -105,6 +110,27 @@ export default function HeroSection() {
                 {lang === 'ko' ? HERO_CTA.secondary.titleKo : HERO_CTA.secondary.titleEn}
               </motion.a>
             </div>
+
+            {/* DGIST 홈페이지 링크 */}
+            <motion.a
+              href="https://www.dgist.ac.kr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-sm mt-4 transition-colors"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                <path d="M2 12h20" />
+              </svg>
+              {lang === 'ko' ? 'DGIST 홈페이지' : 'DGIST Homepage'}
+              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </motion.a>
           </motion.div>
 
           {/* 오른쪽: 달구 이미지 */}
