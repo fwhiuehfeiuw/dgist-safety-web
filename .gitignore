@@ -34,3 +34,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 개발 보조 (커밋 제외)
+/before_*.png
+/after_*.png
+/compare_*.png
+/capture_*.py
+/make_*.py
+/사이트_열기.bat
+/.claude/scheduled_tasks.lock

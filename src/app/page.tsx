@@ -6,11 +6,10 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import MobileFAB from '@/components/layout/MobileFAB';
 import HeroSection from '@/components/sections/HeroSection';
-import SafetyInfoSection from '@/components/sections/SafetyInfoSection';
 import TeamOverview from '@/components/sections/TeamOverview';
+import ContactSection from '@/components/sections/ContactSection';
 import SafetyManagement from '@/components/sections/SafetyManagement';
 import SafetyPrograms from '@/components/sections/SafetyPrograms';
-import EmphasisWeek from '@/components/sections/EmphasisWeek';
 import LocationSection from '@/components/sections/LocationSection';
 
 export default function Home() {
@@ -33,11 +32,10 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <SafetyInfoSection />
         <TeamOverview />
+        <ContactSection />
         <SafetyManagement />
         <SafetyPrograms />
-        <EmphasisWeek />
         <LocationSection />
       </main>
       <Footer />

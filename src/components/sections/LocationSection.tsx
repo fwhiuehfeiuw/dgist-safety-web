@@ -1,18 +1,32 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import { MapPin, Phone, Car } from 'lucide-react';
+import { CheckBadgeIcon } from '@heroicons/react/24/solid';
 import { useLanguage, translations } from '@/lib/i18n';
 import { LOCATION } from '@/lib/constants';
-import SectionWrapper, { SectionTitle } from '@/components/layout/SectionWrapper';
+import SectionWrapper from '@/components/layout/SectionWrapper';
+import SectionHeader from '@/components/layout/SectionHeader';
+
+const UndrawAddress = dynamic(
+  () => import('react-undraw-illustrations').then((m) => m.UndrawAddress),
+  { ssr: false }
+);
 
 export default function LocationSection() {
   const { lang } = useLanguage();
   const tr = translations[lang];
 
   return (
-    <SectionWrapper id="location">
-      <SectionTitle>{tr.locationTitle}</SectionTitle>
+    <SectionWrapper id="location" bgColor="bg-white">
+      <div className="max-w-6xl mx-auto bg-[#FAFAFA] rounded-3xl border border-gray-100 px-6 md:px-10 py-8 md:py-10">
+      <SectionHeader
+        illustration={<UndrawAddress primaryColor="#003876" height="100%" />}
+        eyebrow="Visit Us"
+        titleKo={tr.locationTitle}
+        titleEn="Location"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Google Maps iframe */}
@@ -85,14 +99,16 @@ export default function LocationSection() {
               <h3 className="text-sm font-bold text-[#003876] mb-1">
                 {lang === 'ko' ? '방문객 주차 안내' : 'Visitor Parking'}
               </h3>
-              <p className="text-sm text-[#666666] leading-relaxed">
+              <p className="inline-flex items-center gap-1.5 text-sm font-medium text-[#003876]">
+                <CheckBadgeIcon className="w-4 h-4 text-[#0066CC] flex-shrink-0" />
                 {lang === 'ko'
-                  ? '정문 안내데스크에서 방문 등록 후 주차 가능'
-                  : 'Parking available after visitor registration at the main gate'}
+                  ? 'E1(대학본부) 맞은편 임시주차장'
+                  : 'Temporary parking lot across from E1 (Main Hall)'}
               </p>
             </div>
           </div>
         </motion.div>
+      </div>
       </div>
     </SectionWrapper>
   );

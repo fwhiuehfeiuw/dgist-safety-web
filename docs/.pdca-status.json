@@ -1,10 +1,14 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-03-26T08:59:19.597Z",
+  "lastUpdated": "2026-05-11T08:27:58.836Z",
   "activeFeatures": [
     "웹페이지",
     "sections",
-    "layout"
+    "layout",
+    "programs-preview",
+    "header-preview",
+    "icon-preview",
+    "team-preview"
   ],
   "primaryFeature": "웹페이지",
   "features": {
@@ -17,9 +21,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-03-26T00:56:51.040Z",
-        "lastUpdated": "2026-03-26T08:56:10.926Z"
+        "lastUpdated": "2026-05-11T07:18:13.923Z"
       },
-      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\test_scroll.py"
+      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\lib\\constants.ts"
     },
     "sections": {
       "phase": "do",
@@ -30,9 +34,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-03-26T00:57:19.045Z",
-        "lastUpdated": "2026-03-26T08:59:19.597Z"
+        "lastUpdated": "2026-05-11T08:27:58.836Z"
       },
-      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\components\\sections\\TeamOverview.tsx"
+      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\components\\sections\\SafetyManagement.tsx"
     },
     "layout": {
       "phase": "do",
@@ -43,9 +47,61 @@
       "documents": {},
       "timestamps": {
         "started": "2026-03-26T00:59:11.498Z",
-        "lastUpdated": "2026-03-26T00:59:11.498Z"
+        "lastUpdated": "2026-05-11T07:24:28.253Z"
       },
-      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\components\\layout\\Header.tsx"
+      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\components\\layout\\Footer.tsx"
+    },
+    "programs-preview": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-05-11T06:12:33.397Z",
+        "lastUpdated": "2026-05-11T06:51:27.966Z"
+      },
+      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\app\\programs-preview\\page.tsx"
+    },
+    "header-preview": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-05-11T07:02:05.325Z",
+        "lastUpdated": "2026-05-11T07:02:05.325Z"
+      },
+      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\app\\header-preview\\page.tsx"
+    },
+    "icon-preview": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-05-11T07:35:11.789Z",
+        "lastUpdated": "2026-05-11T07:35:11.789Z"
+      },
+      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\app\\icon-preview\\page.tsx"
+    },
+    "team-preview": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-05-11T08:03:03.698Z",
+        "lastUpdated": "2026-05-11T08:03:03.699Z"
+      },
+      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\app\\team-preview\\page.tsx"
     }
   },
   "pipeline": {
@@ -56,7 +112,7 @@
   "session": {
     "startedAt": "2026-03-24T07:54:21.181Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-03-26T08:59:19.597Z"
+    "lastActivity": "2026-05-11T08:27:58.836Z"
   },
   "history": [
     {
@@ -367,6 +423,966 @@
     },
     {
       "timestamp": "2026-03-26T08:59:19.597Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-16T00:18:03.899Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-16T00:18:28.958Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-16T00:19:05.984Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-16T00:19:17.103Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-16T00:19:22.986Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-16T00:20:34.278Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-16T00:21:46.308Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-16T00:41:23.954Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-04-16T00:42:04.589Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T01:28:23.791Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:16:56.587Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:17:13.235Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:17:19.936Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:17:54.968Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:18:30.355Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:20:39.388Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:20:44.648Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:20:58.824Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:21:08.952Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:21:17.420Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:21:28.027Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:28:46.833Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:28:53.479Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:29:02.159Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:34:55.453Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:35:01.166Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:35:46.028Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:35:56.076Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:36:03.269Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:36:14.129Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:36:30.185Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:37:58.193Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:39:37.559Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:39:44.114Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:40:11.882Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:41:33.060Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:41:39.515Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:42:51.033Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:43:24.319Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:44:52.302Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:47:23.409Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:49:54.062Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:53:02.554Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:53:38.031Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:53:44.060Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:53:59.840Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:55:05.195Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:55:14.197Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:55:30.298Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:55:44.153Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T04:55:59.022Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:02:52.603Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:03:04.426Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:32:14.509Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:38:35.965Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:38:42.982Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:39:24.695Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:39:51.302Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:43:02.864Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:43:23.900Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:43:33.640Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:48:05.744Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:48:23.504Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:52:14.296Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T05:52:31.083Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:04:39.338Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:04:51.808Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:05:01.284Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:05:10.207Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:05:19.525Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:05:28.665Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:05:55.142Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:06:03.957Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:06:14.031Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:06:26.950Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:06:38.973Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:06:48.297Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:07:16.921Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:12:33.397Z",
+      "feature": "programs-preview",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:17:37.213Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:20:07.475Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:20:19.533Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:20:29.062Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:20:39.624Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:20:49.003Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:20:57.514Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:21:06.290Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:21:14.496Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:22:34.191Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:22:46.041Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:22:55.359Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:23:04.162Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:23:11.638Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:29:17.888Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:29:37.993Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:31:28.887Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:31:37.427Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:32:02.359Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:32:15.141Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:51:27.966Z",
+      "feature": "programs-preview",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:52:36.218Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:55:17.210Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:55:30.312Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:58:23.250Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T06:58:44.266Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:02:05.325Z",
+      "feature": "header-preview",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:03:48.625Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:04:00.182Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:04:08.500Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:04:19.462Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:04:43.261Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:04:52.069Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:05:01.217Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:05:25.232Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:05:34.418Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:05:43.140Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:06:02.530Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:06:23.469Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:06:35.224Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:06:45.231Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:07:22.020Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:11:15.153Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:13:12.765Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:16:05.828Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:17:18.713Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:18:13.923Z",
+      "feature": "웹페이지",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:23:17.980Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:23:27.271Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:23:35.683Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:23:43.723Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:23:51.888Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:24:06.898Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:24:28.253Z",
+      "feature": "layout",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:26:50.643Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:27:21.212Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:28:05.783Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:28:31.669Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:28:52.049Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:29:45.700Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:32:12.670Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:32:23.797Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:35:11.789Z",
+      "feature": "icon-preview",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:37:48.876Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:37:59.697Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:38:11.173Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:38:22.772Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:38:54.237Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:39:07.385Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:39:14.978Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:39:45.385Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:40:08.386Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:40:15.922Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:40:44.898Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:41:38.486Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T07:41:49.795Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T08:03:03.699Z",
+      "feature": "team-preview",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T08:04:32.813Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T08:04:45.385Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T08:12:08.872Z",
+      "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T08:27:58.836Z",
       "feature": "sections",
       "phase": "do",
       "action": "updated"

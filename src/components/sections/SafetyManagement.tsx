@@ -2,74 +2,238 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FileText, Shield } from 'lucide-react';
+import { useState } from 'react';
+import dynamic from 'next/dynamic';
+import { Award, FileText } from 'lucide-react';
+import { ShieldCheckIcon } from '@heroicons/react/24/solid';
 import { useLanguage } from '@/lib/i18n';
-import { REGULATIONS } from '@/lib/constants';
-import SectionWrapper, { SectionTitle } from '@/components/layout/SectionWrapper';
+import { REGULATIONS, SAFETY_GOAL } from '@/lib/constants';
+import SectionWrapper from '@/components/layout/SectionWrapper';
+import SectionHeader from '@/components/layout/SectionHeader';
+
+const UndrawSafe = dynamic(
+  () => import('react-undraw-illustrations').then((m) => m.UndrawSafe),
+  { ssr: false }
+);
+
+const UndrawAgreement = dynamic(
+  () => import('react-undraw-illustrations').then((m) => m.UndrawAgreement),
+  { ssr: false }
+);
 
 const regStyles = [
-  { key: 'safety' as const, icon: FileText, gradient: 'from-[#003876] to-[#0066CC]', dotColor: 'bg-[#0066CC]' },
-  { key: 'security' as const, icon: Shield, gradient: 'from-[#5B4FA0] to-[#7B68EE]', dotColor: 'bg-[#7B68EE]' },
+  { key: 'safety' as const, dotColor: 'bg-[#0066CC]' },
+  { key: 'security' as const, dotColor: 'bg-[#7B68EE]' },
 ];
+
+// 이미지가 없을 때를 위한 안전한 폴백
+function ImageWithFallback({ src, alt }: { src: string; alt: string }) {
+  const [error, setError] = useState(false);
+  if (error) {
+    return (
+      <div className="aspect-[3/4] w-full bg-gradient-to-br from-[#E8F0FE] to-[#F5F5F5] flex flex-col items-center justify-center text-[#003876] p-6">
+        <Award className="w-12 h-12 mb-3 opacity-60" />
+        <p className="text-sm text-center text-[#666]">
+          {alt}
+          <br />
+          <span className="text-xs text-[#999]">(이미지 추후 첨부)</span>
+        </p>
+      </div>
+    );
+  }
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={1200}
+      height={1600}
+      className="w-full h-auto"
+      onError={() => setError(true)}
+    />
+  );
+}
 
 export default function SafetyManagement() {
   const { lang } = useLanguage();
 
   return (
-    <SectionWrapper bgColor="bg-white">
-      <SectionTitle>{lang === 'ko' ? '안전보건경영방침' : 'Safety & Health Management Policy'}</SectionTitle>
+    <SectionWrapper id="safety-management" bgColor="bg-[#F5F5F5]">
+      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-8 md:py-10">
+      <SectionHeader
+        illustration={<UndrawSafe primaryColor="#003876" height="100%" />}
+        eyebrow="Management System"
+        titleKo="안전보건경영체계"
+        titleEn="Safety & Health Management System"
+      />
 
-      {/* 경영방침 이미지 */}
+      {/* 2026 안전보건 목표 배너 */}
       <motion.div
-        className="max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-sm border border-gray-100 mb-12"
-        initial={{ opacity: 0, y: 20 }}
+        className="max-w-4xl mx-auto mb-12 relative overflow-hidden rounded-2xl"
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <Image
-          src="/images/safety-policy.jpg"
-          alt={lang === 'ko' ? 'DGIST 안전보건 경영방침' : 'DGIST Safety and Health Management Policy'}
-          width={1200}
-          height={1600}
-          className="w-full h-auto"
-        />
+        <div className="relative bg-gradient-to-br from-[#002855] via-[#003876] to-[#0066CC] px-6 md:px-12 py-8 md:py-10 overflow-hidden">
+          {/* 배경 — 도트 그리드 패턴 (모던) */}
+          <div
+            className="absolute inset-0 opacity-[0.15] pointer-events-none"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '20px 20px',
+            }}
+          />
+          {/* 우측 라디얼 글로우 */}
+          <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-[#5B9BD5]/30 blur-3xl pointer-events-none" />
+
+          <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
+            {/* 좌측: 라벨 + 제목 */}
+            <div className="text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm ring-1 ring-white/20 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#5B9BD5] animate-pulse" />
+                <span className="text-white/85 text-[11px] md:text-xs font-bold tracking-[0.18em] uppercase">
+                  {lang === 'ko' ? '올해의 안전보건 목표' : "This Year's Safety & Health Goal"}
+                </span>
+              </div>
+              <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold leading-tight break-keep">
+                {lang === 'ko' ? (
+                  <>중대재해 <span className="text-[#5B9BD5]">ZERO</span> 유지</>
+                ) : (
+                  <>Maintain <span className="text-[#5B9BD5]">Zero</span> Serious Disasters</>
+                )}
+              </h3>
+              <p className="text-white/60 text-xs md:text-sm mt-2">
+                {lang === 'ko' ? '연속 5년 무사고 달성' : 'Five Consecutive Years Accident-Free'}
+              </p>
+            </div>
+
+            {/* 우측: 거대 0 디스플레이 */}
+            <div className="relative flex items-baseline gap-2 flex-shrink-0">
+              <span
+                className="font-bold leading-none text-white/95 select-none"
+                style={{
+                  fontSize: 'clamp(80px, 12vw, 140px)',
+                  textShadow: '0 8px 30px rgba(91,155,213,0.4)',
+                }}
+                aria-hidden
+              >
+                0
+              </span>
+              <div className="flex flex-col text-left">
+                <span className="text-white/90 text-base md:text-lg font-bold tracking-wide">
+                  {lang === 'ko' ? '건' : 'cases'}
+                </span>
+                <span className="text-[#5B9BD5] text-xs md:text-sm font-semibold">
+                  Zero Tolerance
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </motion.div>
 
-      {/* 소관 규정 */}
-      <div className="max-w-3xl mx-auto">
-        <h3 className="text-lg font-bold text-[#003876] text-center mb-6">
-          {lang === 'ko' ? '소관 규정' : 'Regulations'}
-        </h3>
+      {/* 인증서 + 경영방침 2열 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+        {/* 안전보건경영시스템 인증서 */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col"
+        >
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#003876] to-[#0066CC] flex items-center justify-center">
+              <Award className="w-4 h-4 text-white" />
+            </div>
+            <h3 className="text-base font-bold text-[#003876]">
+              {lang === 'ko' ? '안전보건경영시스템' : 'Safety & Health Management System'}
+            </h3>
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex-1 bg-white">
+            <ImageWithFallback
+              src={lang === 'ko' ? '/images/iso45001-cert.jpg' : '/images/iso45001-cert-en.jpg'}
+              alt={lang === 'ko' ? 'ISO 45001 안전보건경영시스템 인증서' : 'ISO 45001 Certificate'}
+            />
+          </div>
+          <p className="text-xs text-[#666] text-center mt-3">
+            KS Q ISO 45001:2018 / ISO 45001:2018
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {/* 안전보건경영방침 */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col"
+        >
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0066CC] to-[#5B9BD5] flex items-center justify-center">
+              <FileText className="w-4 h-4 text-white" />
+            </div>
+            <h3 className="text-base font-bold text-[#003876]">
+              {lang === 'ko' ? '안전보건경영방침' : 'Safety & Health Management Policy'}
+            </h3>
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex-1 bg-white">
+            <ImageWithFallback
+              src="/images/safety-policy.jpg"
+              alt={lang === 'ko' ? 'DGIST 안전보건 경영방침' : 'DGIST Safety and Health Management Policy'}
+            />
+          </div>
+          <p className="text-xs text-[#666] text-center mt-3">
+            {lang === 'ko' ? '대구경북과학기술원 안전보건 경영방침' : 'DGIST Safety & Health Policy'}
+          </p>
+        </motion.div>
+      </div>
+
+      {/* 소관 규정 — 위 인증서/방침과 너비 맞춤 */}
+      <div className="max-w-5xl mx-auto">
+        <SectionHeader
+          illustration={<UndrawAgreement primaryColor="#003876" height="100%" />}
+          titleKo="소관 규정"
+          titleEn="Regulations"
+          compact
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {regStyles.map((section, sIndex) => {
-            const Icon = section.icon;
             const data = REGULATIONS[section.key];
+            const accent = section.key === 'safety' ? '#0066CC' : '#7B68EE';
             return (
               <motion.div
                 key={section.key}
-                className="relative bg-[#F5F5F5] rounded-xl p-5 overflow-hidden"
+                className="relative bg-[#F5F5F5] rounded-2xl p-8 overflow-hidden"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: sIndex * 0.1 }}
               >
-                <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${section.gradient}`} />
-
-                <div className="flex items-center gap-2.5 mb-4 pl-3">
-                  <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${section.gradient} flex items-center justify-center`}>
-                    <Icon className="w-4 h-4 text-white" />
+                {/* 헤더 — 사이드 바 + 영문 라벨 + 한글 제목 */}
+                <div className="flex items-start gap-3 mb-6">
+                  <div
+                    className="w-1 h-12 rounded-full flex-shrink-0 mt-1"
+                    style={{ background: accent }}
+                  />
+                  <div>
+                    <span
+                      className="block text-[10px] font-bold tracking-[0.18em] uppercase mb-0.5"
+                      style={{ color: accent }}
+                    >
+                      {data.titleEn}
+                    </span>
+                    <h4 className="text-lg font-bold text-[#1A1A1A] leading-tight">
+                      {lang === 'ko' ? data.titleKo : data.titleEn}
+                    </h4>
                   </div>
-                  <span className="text-sm font-bold text-[#1A1A1A]">
-                    {lang === 'ko' ? data.titleKo : data.titleEn}
-                  </span>
                 </div>
 
-                <ul className="space-y-2 pl-3">
+                <ul className="space-y-3 pl-4">
                   {data.items.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-[#333]">
-                      <span className={`w-1.5 h-1.5 rounded-full ${section.dotColor} flex-shrink-0`} />
+                    <li key={i} className="flex items-center gap-2.5 text-base text-[#333]">
+                      <span className={`w-2 h-2 rounded-full ${section.dotColor} flex-shrink-0`} />
                       {lang === 'ko' ? item.ko : item.en}
                     </li>
                   ))}
@@ -78,6 +242,7 @@ export default function SafetyManagement() {
             );
           })}
         </div>
+      </div>
       </div>
     </SectionWrapper>
   );

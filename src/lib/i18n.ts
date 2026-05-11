@@ -26,7 +26,7 @@ export const translations = {
     // 헤더
     siteName: 'DGIST 안전보안팀',
     // 히어로
-    heroTitle: 'DGIST Safety & Security Team',
+    heroTitle: 'Safety & Security Team',
     heroSubtitle: '안전보안팀',
     heroSlogan: '매월 4일은 안전점검의 날',
     heroDesc: 'DGIST 구성원의 안전한 연구환경을 위해\n안전·보건·보안 업무를 수행합니다.',
@@ -37,7 +37,7 @@ export const translations = {
     teamTitle: '업무 소개',
     managementTitle: '안전보건경영',
     contactTitle: '연락처',
-    programsTitle: '연구실사고 예방 특화 제도',
+    programsTitle: '사고 예방 특화 제도',
     regulationsTitle: '소관 규정',
     emphasisTitle: '안전·보건·보안 강조주간',
     locationTitle: '오시는 길',
@@ -58,7 +58,7 @@ export const translations = {
   },
   en: {
     siteName: 'DGIST Safety & Security',
-    heroTitle: 'DGIST Safety & Security Team',
+    heroTitle: 'Safety & Security Team',
     heroSubtitle: 'Safety & Security Team',
     heroSlogan: 'Safety Inspection Day: Every 4th',
     heroDesc: 'Ensuring safe research environments\nthrough safety, health, and security services.',
@@ -68,7 +68,7 @@ export const translations = {
     teamTitle: 'About Us',
     managementTitle: 'Safety & Health Management',
     contactTitle: 'Contact',
-    programsTitle: 'Lab Accident Prevention Programs',
+    programsTitle: 'Accident Prevention Programs',
     regulationsTitle: 'Regulations',
     emphasisTitle: 'Safety·Health·Security Emphasis Week',
     locationTitle: 'Location',

@@ -19,11 +19,11 @@ export default function SectionWrapper({
   return (
     <motion.section
       id={id}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 32, filter: 'blur(4px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`py-16 md:py-24 ${bgColor} ${className}`}
+      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      className={`py-10 md:py-14 lg:py-16 ${bgColor} ${className}`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {children}
@@ -41,7 +41,7 @@ export function SectionTitle({
 }) {
   return (
     <h2
-      className={`text-2xl md:text-3xl font-bold text-[#003876] mb-8 md:mb-12 text-center ${className}`}
+      className={`text-2xl md:text-3xl font-bold text-[#003876] mb-6 md:mb-8 text-center ${className}`}
     >
       {children}
     </h2>

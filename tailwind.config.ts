@@ -12,6 +12,12 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      transitionTimingFunction: {
+        spring: "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+      transitionDuration: {
+        500: "500ms",
+      },
     },
   },
   plugins: [],

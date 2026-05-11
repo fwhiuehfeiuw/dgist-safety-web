@@ -39,9 +39,24 @@ body {
   background: #a1a1a1;
 }
 
-/* 부드러운 스크롤 */
+/* 부드러운 스크롤 + fixed 헤더 64px 오프셋 */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* 본문 가독성 — line-height 살짝 보강 */
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 포커스 링 — 접근성 */
+*:focus-visible {
+  outline: 2px solid #0066CC;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 @layer utilities {

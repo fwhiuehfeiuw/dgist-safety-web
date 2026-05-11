@@ -11,19 +11,19 @@ export default function LanguageToggle() {
         onClick={() => setLang('ko')}
         className={`px-2 py-1 rounded transition-colors ${
           lang === 'ko'
-            ? 'bg-white text-[#003876] font-bold'
-            : 'text-white/70 hover:text-white'
+            ? 'bg-[#003876] text-white font-bold'
+            : 'text-[#1A1A1A]/60 hover:text-[#003876]'
         }`}
       >
         KO
       </button>
-      <span className="text-white/40">|</span>
+      <span className="text-gray-300">|</span>
       <button
         onClick={() => setLang('en')}
         className={`px-2 py-1 rounded transition-colors ${
           lang === 'en'
-            ? 'bg-white text-[#003876] font-bold'
-            : 'text-white/70 hover:text-white'
+            ? 'bg-[#003876] text-white font-bold'
+            : 'text-[#1A1A1A]/60 hover:text-[#003876]'
         }`}
       >
         EN
