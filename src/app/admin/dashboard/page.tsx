@@ -4,15 +4,11 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { LogOut } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
-import IssuesManager from '@/components/admin/IssuesManager';
-import NewsManager from '@/components/admin/NewsManager';
 import ProgramsManager from '@/components/admin/ProgramsManager';
 import ContactsManager from '@/components/admin/ContactsManager';
 import EmphasisManager from '@/components/admin/EmphasisManager';
 
 const TABS = [
-  { key: 'issues', label: '안전이슈' },
-  { key: 'news', label: '뉴스' },
   { key: 'programs', label: '제도' },
   { key: 'contacts', label: '연락처' },
   { key: 'emphasis', label: '강조주간' },
@@ -23,7 +19,7 @@ type TabKey = (typeof TABS)[number]['key'];
 export default function AdminDashboard() {
   const { isAuthenticated, loading, logout } = useAuth();
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<TabKey>('issues');
+  const [activeTab, setActiveTab] = useState<TabKey>('programs');
 
   useEffect(() => {
     if (!loading && !isAuthenticated) {
@@ -48,8 +44,6 @@ export default function AdminDashboard() {
 
   const renderTab = () => {
     switch (activeTab) {
-      case 'issues': return <IssuesManager />;
-      case 'news': return <NewsManager />;
       case 'programs': return <ProgramsManager />;
       case 'contacts': return <ContactsManager />;
       case 'emphasis': return <EmphasisManager />;

@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-05-11T08:27:58.836Z",
+  "lastUpdated": "2026-05-11T08:36:37.215Z",
   "activeFeatures": [
     "웹페이지",
     "sections",
@@ -8,7 +8,8 @@
     "programs-preview",
     "header-preview",
     "icon-preview",
-    "team-preview"
+    "team-preview",
+    "dashboard"
   ],
   "primaryFeature": "웹페이지",
   "features": {
@@ -102,6 +103,19 @@
         "lastUpdated": "2026-05-11T08:03:03.699Z"
       },
       "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\app\\team-preview\\page.tsx"
+    },
+    "dashboard": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-05-11T08:36:27.579Z",
+        "lastUpdated": "2026-05-11T08:36:37.215Z"
+      },
+      "lastFile": "c:\\Users\\DGIST\\Desktop\\웹페이지\\src\\app\\admin\\dashboard\\page.tsx"
     }
   },
   "pipeline": {
@@ -112,7 +126,7 @@
   "session": {
     "startedAt": "2026-03-24T07:54:21.181Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-05-11T08:27:58.836Z"
+    "lastActivity": "2026-05-11T08:36:37.215Z"
   },
   "history": [
     {
@@ -1384,6 +1398,18 @@
     {
       "timestamp": "2026-05-11T08:27:58.836Z",
       "feature": "sections",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T08:36:27.579Z",
+      "feature": "dashboard",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-05-11T08:36:37.215Z",
+      "feature": "dashboard",
       "phase": "do",
       "action": "updated"
     }
