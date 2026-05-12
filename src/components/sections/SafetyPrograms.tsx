@@ -38,7 +38,7 @@ const PROGRAMS: Program[] = [
   {
     titleKo: '안전체험학습장 운영',
     titleEn: 'Safety Experience Center',
-    descKo: '1인 1VR 체제 VR 안전교육과 심폐소생술(CPR) 실습',
+    descKo: '1인 1VR 기반 안전교육 및 심폐소생술 실습 운영',
     descEn: 'Hands-on VR safety training and CPR practice (1:1 VR setup)',
     category: '교육·훈련',
     categoryEn: 'Education · Training',
@@ -54,7 +54,7 @@ const PROGRAMS: Program[] = [
   {
     titleKo: '외국인 대상 연구실 안전교육',
     titleEn: 'Safety Training for International Researchers',
-    descKo: '글로벌 코디네이터 활용 외국인 전용 집체교육',
+    descKo: '글로벌 코디네이터가 진행하는 외국인 전용 집체교육',
     descEn: 'Dedicated group training led by global coordinators',
     category: '교육·훈련',
     categoryEn: 'Education · Training',
@@ -62,7 +62,7 @@ const PROGRAMS: Program[] = [
   {
     titleKo: '안전관리 자격증 취득 지원',
     titleEn: 'Safety Certification Support',
-    descKo: '연구실안전관리사·산업안전기사 등 국가기술자격 응시료 및 교재비 지원',
+    descKo: '국가기술자격(연구실안전관리사·산업안전기사 등) 응시료·교재비 지원',
     descEn: 'Subsidies for national safety certification exam fees and textbooks',
     category: '교육·훈련',
     categoryEn: 'Education · Training',
@@ -84,9 +84,9 @@ const PROGRAMS: Program[] = [
     categoryEn: 'Support · Service',
   },
   {
-    titleKo: '24시간 AI 안전관리 챗봇',
-    titleEn: '24/7 AI Safety Chatbot',
-    descKo: 'DGIST 매뉴얼·수칙·사고사례 기반 답변, 누출·폐기·보호구 정보 즉시 제공',
+    titleKo: 'AI 안전관리 챗봇',
+    titleEn: 'AI Safety Chatbot',
+    descKo: 'DGIST 매뉴얼·수칙·사고사례 기반으로 안전 정보를 즉시 답변',
     descEn: 'Instant safety answers grounded in DGIST manuals and case studies',
     category: '지원·서비스',
     categoryEn: 'Support · Service',
@@ -131,17 +131,37 @@ export default function SafetyPrograms() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        {/* 상단: 인트로 배너 (그라데이션 배경) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center bg-gradient-to-br from-[#E8F0FE]/50 via-white to-white p-8 md:p-12">
-          <div className="md:col-span-5 relative w-full max-w-[320px] md:max-w-[440px] mx-auto">
-            <Image
-              src="/images/safe-dgist-banner.jpg"
-              alt={lang === 'ko' ? 'Safe DGIST 안전 가이드' : 'Safe DGIST Safety Guide'}
-              width={1696}
-              height={2022}
-              className="w-full h-auto rounded-2xl shadow-lg"
-            />
-          </div>
+        {/* 상단: 인트로 배너 (은은한 블루 톤) */}
+        <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center bg-gradient-to-br from-[#EAF1FB] via-[#F4F8FE] to-[#FAFCFF] p-8 md:p-12 overflow-hidden">
+          {/* 부드러운 컬러 글로우 */}
+          <div className="absolute -top-20 -right-16 w-72 h-72 rounded-full bg-[#5B9BD5]/15 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -left-16 w-72 h-72 rounded-full bg-[#003876]/10 blur-3xl pointer-events-none" />
+
+          <motion.div
+            className="md:col-span-5 relative w-full max-w-[320px] md:max-w-[440px] mx-auto group cursor-default"
+            whileHover={{ y: -6 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+          >
+            {/* hover 시 뒤에 드러나는 컬러 글로우 */}
+            <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-[#0066CC]/30 via-[#5B9BD5]/20 to-transparent opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 pointer-events-none" />
+            {/* 액자 프레임 */}
+            <div className="relative rounded-2xl p-1.5 bg-gradient-to-br from-white to-[#E8F0FE] ring-1 ring-[#003876]/15 group-hover:ring-[#0066CC] shadow-[0_10px_30px_-10px_rgba(0,56,118,0.25)] group-hover:shadow-[0_20px_45px_-12px_rgba(0,56,118,0.4)] transition-all duration-300">
+              <Image
+                src="/images/safe-dgist-banner.jpg"
+                alt={lang === 'ko' ? 'Safe DGIST 안전 가이드' : 'Safe DGIST Safety Guide'}
+                width={1696}
+                height={2022}
+                className="w-full h-auto rounded-xl group-hover:scale-[1.02] transition-transform duration-500"
+              />
+              {/* 우상단 ↗ 뱃지 */}
+              <span className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-sm ring-1 ring-[#003876]/15 flex items-center justify-center opacity-0 group-hover:opacity-100 -translate-y-1 group-hover:translate-y-0 transition-all duration-300 shadow-md">
+                <svg className="w-4 h-4 text-[#0066CC]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M7 7h10v10" />
+                </svg>
+              </span>
+            </div>
+          </motion.div>
 
           <div className="md:col-span-7 text-center md:text-left md:pl-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F0FE] mb-4">
@@ -184,15 +204,60 @@ export default function SafetyPrograms() {
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    boxShadow: [
+                      '0 1px 3px rgba(0,0,0,0.05)',
+                      `0 0 0 2px ${s.numColor}, 0 12px 32px ${s.numColor}66`,
+                      '0 1px 3px rgba(0,0,0,0.05)',
+                    ],
+                    scale: [1, 1.04, 1],
+                  }}
                   viewport={{ once: true, margin: '-30px' }}
-                  transition={{ duration: 0.35, delay: i * 0.03 }}
-                  whileHover={{ y: -3 }}
-                  className="group bg-white rounded-2xl p-4 md:p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+                  transition={{
+                    opacity: { duration: 0.35, delay: i * 0.03 },
+                    y: { duration: 0.35, delay: i * 0.03 },
+                    boxShadow: {
+                      duration: 1.1,
+                      repeat: Infinity,
+                      repeatDelay: 11 * 0.9 - 1.1 + 3,
+                      delay: 1 + i * 0.9,
+                      ease: 'easeInOut',
+                    },
+                    scale: {
+                      duration: 1.1,
+                      repeat: Infinity,
+                      repeatDelay: 11 * 0.9 - 1.1 + 3,
+                      delay: 1 + i * 0.9,
+                      ease: 'easeInOut',
+                    },
+                  }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  style={{ ['--accent' as never]: s.numColor }}
+                  className="group relative bg-white rounded-2xl p-4 md:p-5 border border-gray-100 hover:border-[color:var(--accent)] transition-colors duration-300 overflow-hidden cursor-default"
                 >
-                  {/* 번호 — 아웃라인 (진하게) */}
+                  {/* 상단 컬러 바 — hover 시 자라남 */}
+                  <span
+                    aria-hidden
+                    className="absolute top-0 left-0 h-0.5 w-0 group-hover:w-full transition-[width] duration-500"
+                    style={{ background: s.numColor }}
+                  />
+                  {/* 우상단 ↗ */}
+                  <span
+                    aria-hidden
+                    className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: `${s.numColor}18`, color: s.numColor }}
+                  >
+                    <svg className="w-3 h-3 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </span>
+
+                  {/* 번호 — 아웃라인 (hover 시 살짝 커짐) */}
                   <div
-                    className="text-3xl md:text-4xl font-bold leading-none tabular-nums select-none mb-2.5 transition-all duration-300"
+                    className="text-3xl md:text-4xl font-bold leading-none tabular-nums select-none mb-2.5 transition-transform duration-300 group-hover:scale-110 origin-left"
                     style={{
                       color: 'transparent',
                       WebkitTextStroke: `2px ${s.numColor}`,
@@ -215,7 +280,7 @@ export default function SafetyPrograms() {
                   </h3>
 
                   {/* 설명 */}
-                  <p className="text-[11px] md:text-xs text-[#666] leading-relaxed line-clamp-3">
+                  <p className="text-[11px] md:text-xs text-[#666] leading-relaxed break-keep">
                     {lang === 'ko' ? p.descKo : p.descEn}
                   </p>
                 </motion.div>
@@ -258,7 +323,7 @@ export default function SafetyPrograms() {
                   {lang === 'ko' ? '강조주간 영상' : 'Emphasis Week Video'}
                 </h3>
                 <p className="text-[11px] md:text-xs text-white/75 leading-relaxed mb-2">
-                  {lang === 'ko' ? '안전·보건·보안 캠퍼스 캠페인' : 'Safety · Health · Security Campaign'}
+                  {lang === 'ko' ? '안전·보건·보안 캠페인' : 'Safety · Health · Security Campaign'}
                 </p>
                 <div className="inline-flex items-center gap-1 text-[11px] font-bold text-white/90 group-hover:text-white">
                   {lang === 'ko' ? '바로 보기' : 'Watch now'}

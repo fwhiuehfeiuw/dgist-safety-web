@@ -55,26 +55,32 @@ export default function QuickLinksSection() {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative bg-white rounded-2xl p-6 shadow-sm border border-gray-100 cursor-pointer overflow-hidden flex flex-col"
+              className="group relative bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-[color:var(--accent)] cursor-pointer overflow-hidden flex flex-col transition-colors duration-300"
+              style={{ ['--accent' as never]: `#${qr}` }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               whileHover={{
                 y: -6,
-                boxShadow: '0 20px 40px rgba(0,56,118,0.12)',
+                boxShadow: '0 20px 40px rgba(0,56,118,0.14)',
               }}
+              whileTap={{ scale: 0.98 }}
             >
-              {/* 상단 컬러 바 */}
+              {/* 상단 컬러 바 — hover 시 두꺼워짐 */}
               <div
-                className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${gradient} opacity-60 group-hover:opacity-100 transition-opacity`}
+                className={`absolute top-0 left-0 right-0 h-1 group-hover:h-1.5 bg-gradient-to-r ${gradient} opacity-70 group-hover:opacity-100 transition-all duration-300`}
+              />
+              {/* 코너 글로우 */}
+              <div
+                className={`absolute -top-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500 pointer-events-none`}
               />
 
               <div className="flex items-start justify-between gap-3">
                 {/* 좌: 아이콘 + 텍스트 */}
                 <div className="flex-1 min-w-0">
                   <div
-                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center mb-4 shadow-sm`}
+                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-lg transition-all duration-300`}
                   >
                     {Icon && <Icon className="w-6 h-6 text-white" />}
                   </div>
@@ -117,18 +123,22 @@ export default function QuickLinksSection() {
                 )}
               </div>
 
-              {/* 화살표 */}
-              <div className="mt-auto pt-4 flex items-center text-[#0066CC] text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                <span>{lang === 'ko' ? '바로가기' : 'Visit'}</span>
-                <svg
-                  className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+              {/* CTA 알약 버튼 — 평소 outline, hover 시 컬러 채움 */}
+              <div className="mt-auto pt-4">
+                <span
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold ring-1 ring-[color:var(--accent)]/30 text-[color:var(--accent)] bg-white group-hover:bg-gradient-to-r group-hover:${gradient} group-hover:text-white group-hover:ring-transparent group-hover:shadow-md transition-all duration-300`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
+                  {lang === 'ko' ? '바로가기' : 'Visit'}
+                  <svg
+                    className="w-3 h-3 group-hover:translate-x-0.5 transition-transform"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
               </div>
             </motion.a>
           );

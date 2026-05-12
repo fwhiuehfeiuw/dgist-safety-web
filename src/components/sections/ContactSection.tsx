@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import { Phone, Mail } from 'lucide-react';
+import { Phone, Mail, ArrowUpRight } from 'lucide-react';
 import { useLanguage, translations } from '@/lib/i18n';
 import { supabase } from '@/lib/supabase';
 import { CONTACTS_FALLBACK } from '@/lib/constants';
@@ -119,40 +119,66 @@ export default function ContactSection() {
             return (
               <motion.div
                 key={contact.id}
-                className={`relative ${s.cardBg} rounded-2xl p-5 ring-1 ${s.ring} shadow-sm hover:shadow-lg ${s.shadow} hover:-translate-y-0.5 transition-all duration-300 overflow-hidden`}
+                className={`group relative ${s.cardBg} rounded-2xl p-5 ring-1 ${s.ring} shadow-sm hover:shadow-xl ${s.shadow} transition-all duration-300 overflow-hidden`}
+                style={{ ['--accent' as never]: s.accent }}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -4 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
               >
+                {/* 배경 데코 — hover 시 살짝 회전 */}
+                <motion.div
+                  aria-hidden
+                  className="absolute -top-8 -right-8 w-24 h-24 rounded-full opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500"
+                  style={{ background: s.accent }}
+                />
+
                 {/* 헤더 — 사이드 바 + 한글 분야명 */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div
-                    className="w-1 h-6 rounded-full flex-shrink-0"
+                <div className="relative flex items-center gap-3 mb-4">
+                  <motion.div
+                    className="w-1 rounded-full flex-shrink-0"
                     style={{ background: s.accent }}
+                    initial={{ height: 16 }}
+                    whileHover={{ height: 28 }}
+                    animate={{ height: 24 }}
                   />
                   <h3 className="text-base font-bold text-[#1A1A1A] leading-tight">
                     {lang === 'ko' ? contact.field_ko : contact.field_en}
                   </h3>
+                  <ArrowUpRight
+                    className="ml-auto w-4 h-4 text-gray-400 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                    style={{ color: s.accent }}
+                  />
                 </div>
 
-                {/* 전화번호 */}
-                <a
+                {/* 전화번호 — 버튼 느낌 */}
+                <motion.a
                   href={`tel:${contact.phone.split(',')[0].trim()}`}
-                  className={`flex items-center gap-2 text-sm font-medium text-[#1A1A1A] ${s.hover} transition-colors mb-2 pl-2`}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group/btn relative flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white ring-1 ring-gray-200 text-[#1A1A1A] text-sm font-semibold shadow-sm mb-2 overflow-hidden transition-colors duration-300 hover:bg-[color:var(--accent)] hover:text-white hover:ring-[color:var(--accent)] hover:shadow-md"
                 >
-                  <Phone className="w-4 h-4 text-[#666] flex-shrink-0" />
-                  <span>{contact.phone}</span>
-                </a>
+                  <span className="w-7 h-7 rounded-lg bg-gray-100 group-hover/btn:bg-white/20 flex items-center justify-center transition-colors flex-shrink-0">
+                    <Phone className="w-3.5 h-3.5 text-[color:var(--accent)] group-hover/btn:text-white transition-colors" />
+                  </span>
+                  <span className="flex-1 truncate tabular-nums">{contact.phone}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all" />
+                </motion.a>
 
-                {/* 이메일 */}
-                <a
+                {/* 이메일 — 버튼 느낌 */}
+                <motion.a
                   href={`mailto:${contact.email}`}
-                  className={`flex items-center gap-2 text-sm text-[#555] ${s.hover} transition-colors pl-2`}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="group/btn relative flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white ring-1 ring-gray-200 text-[#555] text-sm font-medium shadow-sm overflow-hidden transition-colors duration-300 hover:bg-[color:var(--accent)] hover:text-white hover:ring-[color:var(--accent)] hover:shadow-md"
                 >
-                  <Mail className="w-4 h-4 text-[#666] flex-shrink-0" />
-                  <span className="truncate">{contact.email}</span>
-                </a>
+                  <span className="w-7 h-7 rounded-lg bg-gray-100 group-hover/btn:bg-white/20 flex items-center justify-center transition-colors flex-shrink-0">
+                    <Mail className="w-3.5 h-3.5 text-[color:var(--accent)] group-hover/btn:text-white transition-colors" />
+                  </span>
+                  <span className="flex-1 truncate">{contact.email}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all" />
+                </motion.a>
               </motion.div>
             );
           })}
