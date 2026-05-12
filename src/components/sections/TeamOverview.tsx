@@ -340,7 +340,11 @@ export default function TeamOverview() {
 
   return (
     <SectionWrapper id="team-overview" bgColor="bg-[#EEF2F7]">
-      <div className="max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-5 md:py-7">
+      <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-[#E8F0FE] via-[#F4F8FE] to-[#FAFCFF] rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-5 md:py-7 overflow-hidden">
+        {/* 코너 글로우 — 부서 업무: 안전(블루) + 보건(에메랄드) + 보안(보라) 삼색 */}
+        <div aria-hidden className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-[#5B9BD5]/25 blur-3xl pointer-events-none" />
+        <div aria-hidden className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-[#5B4FA0]/15 blur-3xl pointer-events-none" />
+        <div aria-hidden className="absolute top-1/3 -left-10 w-48 h-48 rounded-full bg-[#2E8B57]/12 blur-3xl pointer-events-none" />
         <SectionHeader
           illustration={<UndrawTeamSpirit primaryColor="#003876" height="100%" />}
           eyebrow="Our Team"

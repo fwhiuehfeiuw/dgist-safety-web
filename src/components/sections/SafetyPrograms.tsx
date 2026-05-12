@@ -125,7 +125,7 @@ export default function SafetyPrograms() {
     <SectionWrapper id="programs" bgColor="bg-[#EEF2F7]">
       {/* 단일 컨테이너 — 배너 + 11개 리스트를 한 카드로 묶음 */}
       <motion.div
-        className="max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl shadow-sm border border-gray-100 overflow-hidden"
+        className="relative max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl shadow-[0_10px_40px_-12px_rgba(230,126,34,0.25)] border-[3px] border-[#E67E22]/55 overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -138,7 +138,7 @@ export default function SafetyPrograms() {
           <div className="absolute -bottom-24 -left-16 w-72 h-72 rounded-full bg-[#003876]/10 blur-3xl pointer-events-none" />
 
           <motion.div
-            className="md:col-span-5 relative w-full max-w-[320px] md:max-w-[440px] mx-auto group cursor-default"
+            className="md:col-span-7 relative w-full max-w-[360px] md:max-w-[600px] mx-auto group cursor-default"
             whileHover={{ y: -6 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 280, damping: 22 }}
@@ -163,7 +163,7 @@ export default function SafetyPrograms() {
             </div>
           </motion.div>
 
-          <div className="md:col-span-7 text-center md:text-left md:pl-2">
+          <div className="md:col-span-5 text-center md:text-left md:pl-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F0FE] mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0066CC]" />
               <span className="text-[#0066CC] text-[11px] font-bold tracking-[0.18em] uppercase">
@@ -338,13 +338,13 @@ export default function SafetyPrograms() {
       </motion.div>
 
       {/* 출처 */}
-      <p className="text-center mt-8 text-xs text-[#999]">
+      <p className="text-center mt-8 text-sm md:text-base text-[#555] font-medium">
         {lang === 'ko' ? '※ 자세한 내용은 ' : '※ Details on '}
         <a
           href="https://blog.naver.com/dgist_safety/224234479316"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#0066CC] hover:underline"
+          className="text-[#0066CC] font-bold hover:underline"
         >
           {lang === 'ko' ? 'DGIST 안전보안팀 블로그' : 'DGIST Safety Blog'}
         </a>

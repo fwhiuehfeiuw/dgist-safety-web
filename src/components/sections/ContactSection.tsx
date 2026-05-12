@@ -85,7 +85,11 @@ export default function ContactSection() {
 
   return (
     <SectionWrapper id="contact" bgColor="bg-[#F7F9FC]">
-      <div className="max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl border border-gray-100 px-6 md:px-10 py-5 md:py-7">
+      <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-[#EAF7F0] via-[#F4F8FE] to-[#FAF7FF] rounded-3xl border border-gray-100 px-6 md:px-10 py-5 md:py-7 overflow-hidden">
+        {/* 코너 글로우 — 연락처: 따뜻한 톤 (안전/보건/보안 컬러) */}
+        <div aria-hidden className="absolute -top-20 -left-16 w-72 h-72 rounded-full bg-[#2E8B57]/15 blur-3xl pointer-events-none" />
+        <div aria-hidden className="absolute -bottom-24 -right-20 w-72 h-72 rounded-full bg-[#5B4FA0]/12 blur-3xl pointer-events-none" />
+        <div aria-hidden className="absolute top-10 right-1/3 w-48 h-48 rounded-full bg-[#0066CC]/10 blur-3xl pointer-events-none" />
       <SectionHeader
         illustration={<UndrawConversation primaryColor="#003876" height="100%" />}
         eyebrow="Get in Touch"
@@ -152,19 +156,13 @@ export default function ContactSection() {
                   />
                 </div>
 
-                {/* 전화번호 — 버튼 느낌 */}
-                <motion.a
-                  href={`tel:${contact.phone.split(',')[0].trim()}`}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="group/btn relative flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white ring-1 ring-gray-200 text-[#1A1A1A] text-sm font-semibold shadow-sm mb-2 overflow-hidden transition-colors duration-300 hover:bg-[color:var(--accent)] hover:text-white hover:ring-[color:var(--accent)] hover:shadow-md"
-                >
-                  <span className="w-7 h-7 rounded-lg bg-gray-100 group-hover/btn:bg-white/20 flex items-center justify-center transition-colors flex-shrink-0">
-                    <Phone className="w-3.5 h-3.5 text-[color:var(--accent)] group-hover/btn:text-white transition-colors" />
+                {/* 전화번호 — 정적 표시 (링크 없음) */}
+                <div className="relative flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl bg-white ring-1 ring-gray-200 text-[#1A1A1A] text-sm font-semibold shadow-sm mb-2 overflow-hidden">
+                  <span className="w-7 h-7 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-3.5 h-3.5 text-[color:var(--accent)]" />
                   </span>
                   <span className="flex-1 truncate tabular-nums">{contact.phone}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover/btn:opacity-100 group-hover/btn:translate-x-0 transition-all" />
-                </motion.a>
+                </div>
 
                 {/* 이메일 — 버튼 느낌 */}
                 <motion.a

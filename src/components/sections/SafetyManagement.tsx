@@ -58,7 +58,10 @@ export default function SafetyManagement() {
 
   return (
     <SectionWrapper id="safety-management" bgColor="bg-[#EEF2F7]">
-      <div className="max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-5 md:py-7">
+      <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-[#E0EAFB] via-[#F0F5FE] to-[#FAFCFF] rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-5 md:py-7 overflow-hidden">
+        {/* 코너 글로우 — 경영체계: DGIST 네이비 + 스카이 */}
+        <div aria-hidden className="absolute -top-28 -right-20 w-80 h-80 rounded-full bg-[#003876]/15 blur-3xl pointer-events-none" />
+        <div aria-hidden className="absolute -bottom-24 -left-16 w-72 h-72 rounded-full bg-[#5B9BD5]/20 blur-3xl pointer-events-none" />
       <SectionHeader
         illustration={<UndrawSafe primaryColor="#003876" height="100%" />}
         eyebrow="Management System"
@@ -68,13 +71,13 @@ export default function SafetyManagement() {
 
       {/* 2026 안전보건 목표 배너 */}
       <motion.div
-        className="max-w-4xl mx-auto mb-12 relative overflow-hidden rounded-2xl"
+        className="max-w-5xl mx-auto mb-12 relative overflow-hidden rounded-2xl"
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <div className="relative bg-gradient-to-br from-[#002855] via-[#003876] to-[#0066CC] px-6 md:px-12 py-5 md:py-7 overflow-hidden">
+        <div className="relative bg-gradient-to-br from-[#0066CC] via-[#1E7BD8] to-[#5B9BD5] px-6 md:px-12 py-5 md:py-7 overflow-hidden">
           {/* 배경 — 도트 그리드 패턴 (모던) */}
           <div
             className="absolute inset-0 opacity-[0.15] pointer-events-none"
@@ -89,20 +92,20 @@ export default function SafetyManagement() {
           <div className="relative flex flex-col md:flex-row items-center justify-between gap-6">
             {/* 좌측: 라벨 + 제목 */}
             <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm ring-1 ring-white/20 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#5B9BD5] animate-pulse" />
-                <span className="text-white/85 text-[11px] md:text-xs font-bold tracking-[0.18em] uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm ring-1 ring-white/40 mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFE066] animate-pulse" />
+                <span className="text-white text-[11px] md:text-xs font-bold tracking-[0.18em] uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
                   {lang === 'ko' ? '올해의 안전보건 목표' : "This Year's Safety & Health Goal"}
                 </span>
               </div>
-              <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold leading-tight break-keep">
+              <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold leading-tight break-keep drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
                 {lang === 'ko' ? (
-                  <>중대재해 <span className="text-[#5B9BD5]">ZERO</span> 유지</>
+                  <>중대재해 <span className="text-[#FFE066] font-black drop-shadow-[0_2px_12px_rgba(255,224,102,0.6)]">ZERO</span> 유지</>
                 ) : (
-                  <>Maintain <span className="text-[#5B9BD5]">Zero</span> Serious Disasters</>
+                  <>Maintain <span className="text-[#FFE066] font-black drop-shadow-[0_2px_12px_rgba(255,224,102,0.6)]">Zero</span> Serious Disasters</>
                 )}
               </h3>
-              <p className="text-white/60 text-xs md:text-sm mt-2">
+              <p className="text-white text-sm md:text-base font-medium mt-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
                 {lang === 'ko' ? '연속 5년 무사고 달성' : 'Five Consecutive Years Accident-Free'}
               </p>
             </div>
@@ -110,20 +113,20 @@ export default function SafetyManagement() {
             {/* 우측: 거대 0 디스플레이 */}
             <div className="relative flex items-baseline gap-2 flex-shrink-0">
               <span
-                className="font-bold leading-none text-white/95 select-none"
+                className="font-black leading-none text-white select-none"
                 style={{
                   fontSize: 'clamp(80px, 12vw, 140px)',
-                  textShadow: '0 8px 30px rgba(91,155,213,0.4)',
+                  textShadow: '0 4px 24px rgba(0,0,0,0.35), 0 0 60px rgba(255,255,255,0.3)',
                 }}
                 aria-hidden
               >
                 0
               </span>
               <div className="flex flex-col text-left">
-                <span className="text-white/90 text-base md:text-lg font-bold tracking-wide">
+                <span className="text-white text-base md:text-lg font-bold tracking-wide drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
                   {lang === 'ko' ? '건' : 'cases'}
                 </span>
-                <span className="text-[#5B9BD5] text-xs md:text-sm font-semibold">
+                <span className="text-[#FFE066] text-xs md:text-sm font-bold drop-shadow-[0_1px_4px_rgba(255,224,102,0.5)]">
                   Zero Tolerance
                 </span>
               </div>

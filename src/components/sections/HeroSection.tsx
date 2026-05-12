@@ -39,10 +39,10 @@ export default function HeroSection() {
         {Array.from({ length: 14 * 9 }).map((_, i) => {
           const row = Math.floor(i / 14);
           const col = i % 14;
-          const jx = ((i * 37) % 100) / 100 - 0.5; // -0.5~0.5
+          const jx = ((i * 37) % 100) / 100 - 0.5;
           const jy = ((i * 53) % 100) / 100 - 0.5;
-          const sizes = [1, 1, 1, 2, 2, 3];
-          const opacities = [0.3, 0.4, 0.5, 0.5, 0.6, 0.7, 0.8];
+          const sizes = [2, 2, 3, 3, 4, 4, 5];
+          const opacities = [0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1];
           const size = sizes[i % sizes.length];
           const opacity = opacities[(i * 7) % opacities.length];
           return (
@@ -57,11 +57,36 @@ export default function HeroSection() {
                 opacity,
                 animationDuration: `${2 + (i % 5)}s`,
                 animationDelay: `${(i % 8) * 0.25}s`,
-                boxShadow: `0 0 ${size * 2}px rgba(255,255,255,${opacity * 0.6})`,
+                boxShadow: `0 0 ${size * 3}px rgba(255,255,255,${opacity}), 0 0 ${size * 6}px rgba(255,255,255,${opacity * 0.5})`,
               }}
             />
           );
         })}
+        {/* 강조 별 (큰 크로스 모양) — 5개 */}
+        {[
+          { top: '15%', left: '20%' },
+          { top: '28%', left: '78%' },
+          { top: '55%', left: '12%' },
+          { top: '70%', left: '88%' },
+          { top: '42%', left: '50%' },
+        ].map((s, i) => (
+          <span
+            key={`star-${i}`}
+            className="absolute animate-pulse"
+            style={{
+              top: s.top,
+              left: s.left,
+              width: 16,
+              height: 16,
+              animationDuration: `${3 + i}s`,
+              animationDelay: `${i * 0.4}s`,
+            }}
+          >
+            <svg viewBox="0 0 24 24" fill="white" className="w-full h-full drop-shadow-[0_0_8px_rgba(255,255,255,0.9)]">
+              <path d="M12 2 L13 11 L22 12 L13 13 L12 22 L11 13 L2 12 L11 11 Z" />
+            </svg>
+          </span>
+        ))}
         {[
           // 상단
           { top: '4%', left: '6%', size: 2, opacity: 0.7 },
@@ -219,18 +244,17 @@ export default function HeroSection() {
                 </span>
               </motion.a>
 
-              {/* 보조 CTA: 안전보안관리시스템 — 텍스트 링크 톤다운 */}
+              {/* 보조 CTA: 안전보안관리시스템 — ghost pill 버튼 */}
               <motion.a
                 href={HERO_CTA.secondary.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-white/90 hover:text-white font-semibold text-base px-1 py-2 transition-colors self-center"
-                whileHover={{ x: 2 }}
+                className="group inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 ring-1 ring-white/40 hover:ring-white/70 backdrop-blur-sm text-white font-bold text-base md:text-lg px-5 py-2.5 rounded-full transition-all self-center"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <span className="border-b border-white/30 group-hover:border-white pb-0.5 transition-colors">
-                  {lang === 'ko' ? HERO_CTA.secondary.titleKo : HERO_CTA.secondary.titleEn}
-                </span>
-                <ArrowRightIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                <span>{lang === 'ko' ? HERO_CTA.secondary.titleKo : HERO_CTA.secondary.titleEn}</span>
+                <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </motion.a>
             </div>
 
@@ -250,23 +274,33 @@ export default function HeroSection() {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 ring-1 ring-white/15 hover:ring-white/30 rounded-xl pl-1.5 pr-3 py-1.5 transition-all"
+                  className="group inline-flex items-center gap-3 bg-white/10 hover:bg-white/15 ring-1 ring-white/25 hover:ring-white/50 rounded-xl pl-2 pr-3.5 py-2 transition-all backdrop-blur-sm"
                 >
-                  <div className="w-12 h-12 rounded-md bg-white p-1 flex-shrink-0">
-                    <img
-                      src={qrUrl(item.url)}
-                      alt={`QR — ${item.titleKo}`}
-                      width={48}
-                      height={48}
-                      className="w-full h-full object-contain"
-                    />
+                  {/* QR 프레임 — 그라데이션 링 + 코너 마커 */}
+                  <div className="relative flex-shrink-0">
+                    {/* 외곽 그라데이션 글로우 링 */}
+                    <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-br from-[#FFE066] via-[#5B9BD5] to-[#FFE066] opacity-80 blur-[1px]" />
+                    <div className="relative w-14 h-14 rounded-lg bg-white p-1.5 shadow-[0_6px_20px_rgba(255,224,102,0.35),0_0_30px_rgba(91,155,213,0.25)]">
+                      <img
+                        src={qrUrl(item.url)}
+                        alt={`QR — ${item.titleKo}`}
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-contain"
+                      />
+                      {/* ㄱ자 코너 마커 — 노란색 (ZERO 액센트와 통일) */}
+                      <span className="absolute top-1 left-1 w-2 h-2 border-t-2 border-l-2 rounded-tl border-[#0066CC]" />
+                      <span className="absolute top-1 right-1 w-2 h-2 border-t-2 border-r-2 rounded-tr border-[#0066CC]" />
+                      <span className="absolute bottom-1 left-1 w-2 h-2 border-b-2 border-l-2 rounded-bl border-[#0066CC]" />
+                      <span className="absolute bottom-1 right-1 w-2 h-2 border-b-2 border-r-2 rounded-br border-[#0066CC]" />
+                    </div>
                   </div>
                   <div className="text-left">
-                    <div className="inline-flex items-center gap-1 text-xs text-white font-bold tracking-[0.18em] uppercase">
+                    <div className="inline-flex items-center gap-1 text-[11px] text-white font-bold tracking-[0.18em] uppercase">
                       <ScanLine className="w-3.5 h-3.5" />
                       Scan
                     </div>
-                    <div className="text-xs text-white/90 font-medium leading-tight mt-0.5">
+                    <div className="text-sm text-white font-semibold leading-tight mt-1">
                       {lang === 'ko' ? `${item.titleKo} 모바일` : `${item.titleEn} mobile`}
                     </div>
                   </div>
@@ -279,10 +313,12 @@ export default function HeroSection() {
               href="https://www.dgist.ac.kr"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-white/90 hover:text-white text-base md:text-lg font-semibold mt-4 transition-colors"
+              className="group inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 ring-1 ring-white/40 hover:ring-white/70 backdrop-blur-sm text-white text-base md:text-lg font-bold px-5 py-2.5 rounded-full mt-4 transition-all"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -290,7 +326,7 @@ export default function HeroSection() {
                 <path d="M2 12h20" />
               </svg>
               {lang === 'ko' ? 'DGIST 홈페이지' : 'DGIST Homepage'}
-              <ArrowTopRightOnSquareIcon className="w-4 h-4" />
+              <ArrowTopRightOnSquareIcon className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </motion.a>
           </motion.div>
 
