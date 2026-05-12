@@ -167,21 +167,23 @@ export default function SafetyPrograms() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F0FE] mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#0066CC]" />
               <span className="text-[#0066CC] text-[11px] font-bold tracking-[0.18em] uppercase">
-                Prevention Program
+                Safety Programs
               </span>
             </div>
-            <h2 className="text-2xl md:text-4xl font-bold text-[#003876] mb-5 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#003876] mb-5 leading-tight break-keep whitespace-nowrap">
               {tr.programsTitle}
             </h2>
             <p className="text-sm md:text-base text-[#555] leading-relaxed mb-3">
-              {lang === 'ko'
-                ? 'DGIST가 자체적으로 운영하는 11가지 사고 예방 프로그램입니다.'
-                : 'Eleven DGIST-run programs designed to prevent lab accidents.'}
+              {lang === 'ko' ? (
+                <>DGIST가 자체적으로 운영하는 11가지 안전관리 특화<br />프로그램입니다.</>
+              ) : (
+                'Eleven DGIST-run programs for distinctive campus safety management.'
+              )}
             </p>
             <p className="text-xs md:text-sm text-[#888] leading-relaxed">
               {lang === 'ko'
-                ? '구성원의 목소리에서 출발해 만든 DGIST만의 안전관리 체계.'
-                : "Built from our members' voices — DGIST's own safety management system."}
+                ? '구성원의 목소리에서 출발해 만든 DGIST만의 안전관리 체계'
+                : "Built from our members' voices — DGIST's own safety management system"}
             </p>
           </div>
         </div>

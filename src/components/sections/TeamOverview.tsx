@@ -47,45 +47,55 @@ const SCREENS = [
   {
     key: 'safety' as const,
     title: '안전관리',
+    titleEn: 'Safety',
     handle: 'dgist_safety',
     accent: '#0066CC',
     bg: 'from-[#003876] to-[#0066CC]',
     Icon: Shield,
     emoji: '🥼',
     caption: '안전은 작은 습관에서. 매월 4일은 안전점검의 날',
+    captionEn: 'Safety starts with small habits. The 4th of every month is Safety Check Day.',
     tags: ['#연구실안전', '#중대재해ZERO', '#매월4일'],
+    tagsEn: ['#LabSafety', '#ZeroDisaster', '#SafetyCheckDay'],
     bars: [55, 78, 62, 88, 72, 95, 68, 90, 74, 92],
     chartLabel: '점검 완료율',
   },
   {
     key: 'health' as const,
     title: '보건관리',
+    titleEn: 'Health',
     handle: 'dgist_health',
     accent: '#2E8B57',
     bg: 'from-[#1F6B43] to-[#2E8B57]',
     Icon: Heart,
     emoji: '🫀',
     caption: '건강한 캠퍼스 환경 조성. 의무실은 언제든 열려 있어요',
+    captionEn: 'Building a healthy campus. The clinic is always open for you.',
     tags: ['#산업보건', '#건강관리실', '#MSDS'],
+    tagsEn: ['#OccupationalHealth', '#HealthCenter', '#MSDS'],
     bars: [40, 55, 48, 70, 82, 65, 88, 92, 78, 60],
     chartLabel: '건강진단 추이',
   },
   {
     key: 'security' as const,
     title: '보안관리',
+    titleEn: 'Security',
     handle: 'dgist_security',
     accent: '#5B4FA0',
     bg: 'from-[#3F3870] to-[#5B4FA0]',
     Icon: Lock,
     emoji: '🔒',
     caption: '안전한 캠퍼스를 위한 24/7 보안. 출입은 정해진 절차로',
+    captionEn: 'Round-the-clock security for a safe campus. Access by proper procedure.',
     tags: ['#시설보안', '#출입통제', '#비상대비'],
+    tagsEn: ['#FacilitySecurity', '#AccessControl', '#Emergency'],
     bars: [85, 90, 88, 92, 86, 94, 89, 91, 87, 93],
     chartLabel: '24/7 모니터링',
   },
 ];
 
 function RotatingMonitor() {
+  const { lang } = useLanguage();
   const [idx, setIdx] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setIdx((i) => (i + 1) % SCREENS.length), 3500);
@@ -178,7 +188,7 @@ function RotatingMonitor() {
               </div>
               <div className="leading-tight">
                 <div className="text-[10px] font-bold text-gray-900">{s.handle}</div>
-                <div className="text-[8px] text-gray-500">DGIST 안전보안팀</div>
+                <div className="text-[8px] text-gray-500">{lang === 'ko' ? 'DGIST 안전보안팀' : 'DGIST Safety & Security'}</div>
               </div>
               <MoreHorizontal className="ml-auto w-4 h-4 text-gray-600" />
             </div>
@@ -221,7 +231,7 @@ function RotatingMonitor() {
                       DGIST Team
                     </div>
                     <div className="text-white text-[22px] font-black leading-tight drop-shadow">
-                      {s.title}
+                      {lang === 'ko' ? s.title : s.titleEn}
                     </div>
                   </div>
                   <div className="text-2xl drop-shadow-lg">{s.emoji}</div>
@@ -267,16 +277,16 @@ function RotatingMonitor() {
             <div className="px-3 pt-1 pb-1.5 flex-1">
               <div className="text-[10px] leading-snug text-gray-800 break-keep">
                 <span className="font-bold mr-1">{s.handle}</span>
-                {s.caption}
+                {lang === 'ko' ? s.caption : s.captionEn}
               </div>
               <div className="mt-1 flex flex-wrap gap-x-1.5">
-                {s.tags.map((t) => (
+                {(lang === 'ko' ? s.tags : s.tagsEn).map((t) => (
                   <span key={t} className="text-[10px] font-medium" style={{ color: s.accent }}>
                     {t}
                   </span>
                 ))}
               </div>
-              <div className="mt-1 text-[8px] text-gray-400 uppercase tracking-wider">방금 전</div>
+              <div className="mt-1 text-[8px] text-gray-400 uppercase tracking-wider">{lang === 'ko' ? '방금 전' : 'just now'}</div>
             </div>
 
             {/* 하단 탭바 */}
@@ -311,7 +321,7 @@ function RotatingMonitor() {
             style={{ color: s.accent, background: `${s.accent}14` }}
           >
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: s.accent }} />
-            Now Showing — {s.title}
+            Now Showing — {lang === 'ko' ? s.title : s.titleEn}
           </motion.div>
         </AnimatePresence>
       </div>

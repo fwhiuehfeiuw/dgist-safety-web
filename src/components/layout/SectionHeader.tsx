@@ -60,9 +60,11 @@ export default function SectionHeader({
         >
           {lang === 'ko' ? titleKo : titleEn}
         </h2>
-        <p className="text-xs md:text-sm text-[#666] mt-1.5 tracking-wide">
-          {lang === 'ko' ? titleEn : titleKo}
-        </p>
+        {lang === 'ko' && (
+          <p className="text-xs md:text-sm text-[#666] mt-1.5 tracking-wide">
+            {titleEn}
+          </p>
+        )}
       </div>
 
       {/* 우측 ↗ — hover 시 등장 */}

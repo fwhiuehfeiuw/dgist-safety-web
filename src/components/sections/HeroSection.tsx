@@ -206,8 +206,8 @@ export default function HeroSection() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="inline-block mb-4"
             >
-              <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm font-medium px-4 py-2 rounded-full">
-                <span className="w-2 h-2 bg-[#2E8B57] rounded-full animate-pulse" />
+              <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 text-white text-sm md:text-base font-semibold px-4 py-2 rounded-full shadow-md">
+                <span className="text-base md:text-lg leading-none" aria-hidden>📌</span>
                 {tr.heroSlogan}
               </span>
             </motion.div>

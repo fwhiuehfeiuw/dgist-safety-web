@@ -45,7 +45,7 @@ export default function LocationSection() {
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="flex flex-col items-center gap-2 text-[#003876]/40">
               <MapPin className="w-8 h-8 animate-pulse" />
-              <span className="text-xs font-medium">지도를 불러오는 중...</span>
+              <span className="text-xs font-medium">{lang === 'ko' ? '지도를 불러오는 중...' : 'Loading map...'}</span>
             </div>
           </div>
           <iframe

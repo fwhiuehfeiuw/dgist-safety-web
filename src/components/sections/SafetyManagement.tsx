@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import { Award, FileText, ArrowUpRight } from 'lucide-react';
+import { Award, FileText, ArrowUpRight, X, ZoomIn } from 'lucide-react';
 import { ShieldCheckIcon } from '@heroicons/react/24/solid';
 import { useLanguage } from '@/lib/i18n';
 import { REGULATIONS, SAFETY_GOAL } from '@/lib/constants';
@@ -55,6 +55,7 @@ function ImageWithFallback({ src, alt }: { src: string; alt: string }) {
 
 export default function SafetyManagement() {
   const { lang } = useLanguage();
+  const [zoomImage, setZoomImage] = useState<{ src: string; alt: string } | null>(null);
 
   return (
     <SectionWrapper id="safety-management" bgColor="bg-[#EEF2F7]">
@@ -106,7 +107,7 @@ export default function SafetyManagement() {
                 )}
               </h3>
               <p className="text-white text-sm md:text-base font-medium mt-2 drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
-                {lang === 'ko' ? '연속 5년 무사고 달성' : 'Five Consecutive Years Accident-Free'}
+                {lang === 'ko' ? '안전 최우선·중대재해 ZERO 지속' : 'Safety First · Sustained Zero Serious Disasters'}
               </p>
             </div>
 
@@ -155,14 +156,28 @@ export default function SafetyManagement() {
             </h3>
             <ArrowUpRight className="w-4 h-4 text-[#0066CC] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
           </div>
-          <div className="relative rounded-2xl overflow-hidden shadow-sm border border-gray-100 group-hover:border-[#0066CC] group-hover:shadow-xl flex-1 bg-white transition-all duration-300">
+          <button
+            type="button"
+            onClick={() =>
+              setZoomImage({
+                src: lang === 'ko' ? '/images/iso45001-cert.jpg' : '/images/iso45001-cert-en.jpg',
+                alt: lang === 'ko' ? 'ISO 45001 안전보건경영시스템 인증서' : 'ISO 45001 Certificate',
+              })
+            }
+            className="relative rounded-2xl overflow-hidden shadow-sm border border-gray-100 group-hover:border-[#0066CC] group-hover:shadow-xl flex-1 bg-white transition-all duration-300 cursor-zoom-in"
+            aria-label={lang === 'ko' ? '인증서 크게 보기' : 'Enlarge certificate'}
+          >
             <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-[#0066CC] opacity-0 group-hover:opacity-15 blur-2xl transition-opacity duration-500 pointer-events-none" />
             <ImageWithFallback
               src={lang === 'ko' ? '/images/iso45001-cert.jpg' : '/images/iso45001-cert-en.jpg'}
               alt={lang === 'ko' ? 'ISO 45001 안전보건경영시스템 인증서' : 'ISO 45001 Certificate'}
             />
-          </div>
-          <p className="text-xs text-[#666] text-center mt-3">
+            {/* 확대 아이콘 */}
+            <span className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm ring-1 ring-[#003876]/20 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 shadow-md">
+              <ZoomIn className="w-5 h-5 text-[#0066CC]" />
+            </span>
+          </button>
+          <p className="text-sm md:text-base text-[#1A1A1A] font-semibold text-center mt-3">
             KS Q ISO 45001:2018 / ISO 45001:2018
           </p>
         </motion.div>
@@ -185,14 +200,28 @@ export default function SafetyManagement() {
             </h3>
             <ArrowUpRight className="w-4 h-4 text-[#5B9BD5] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
           </div>
-          <div className="relative rounded-2xl overflow-hidden shadow-sm border border-gray-100 group-hover:border-[#5B9BD5] group-hover:shadow-xl flex-1 bg-white transition-all duration-300">
+          <button
+            type="button"
+            onClick={() =>
+              setZoomImage({
+                src: '/images/safety-policy.jpg',
+                alt: lang === 'ko' ? 'DGIST 안전보건 경영방침' : 'DGIST Safety and Health Management Policy',
+              })
+            }
+            className="relative rounded-2xl overflow-hidden shadow-sm border border-gray-100 group-hover:border-[#5B9BD5] group-hover:shadow-xl flex-1 bg-white transition-all duration-300 cursor-zoom-in"
+            aria-label={lang === 'ko' ? '경영방침 크게 보기' : 'Enlarge policy'}
+          >
             <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-[#5B9BD5] opacity-0 group-hover:opacity-15 blur-2xl transition-opacity duration-500 pointer-events-none" />
             <ImageWithFallback
               src="/images/safety-policy.jpg"
               alt={lang === 'ko' ? 'DGIST 안전보건 경영방침' : 'DGIST Safety and Health Management Policy'}
             />
-          </div>
-          <p className="text-xs text-[#666] text-center mt-3">
+            {/* 확대 아이콘 */}
+            <span className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm ring-1 ring-[#003876]/20 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 shadow-md">
+              <ZoomIn className="w-5 h-5 text-[#5B9BD5]" />
+            </span>
+          </button>
+          <p className="text-sm md:text-base text-[#1A1A1A] font-semibold text-center mt-3">
             {lang === 'ko' ? '대구경북과학기술원 안전보건 경영방침' : 'DGIST Safety & Health Policy'}
           </p>
         </motion.div>
@@ -279,6 +308,38 @@ export default function SafetyManagement() {
         </div>
       </div>
       </div>
+
+      {/* 이미지 확대 라이트박스 */}
+      {zoomImage && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 cursor-zoom-out"
+          onClick={() => setZoomImage(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setZoomImage(null);
+            }}
+            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/30 backdrop-blur-sm flex items-center justify-center transition-all"
+            aria-label={lang === 'ko' ? '닫기' : 'Close'}
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+          <div className="relative max-w-5xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={zoomImage.src}
+              alt={zoomImage.alt}
+              width={2000}
+              height={2700}
+              className="w-auto h-auto max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+            />
+            <p className="text-center text-white/85 text-sm mt-3">{zoomImage.alt}</p>
+          </div>
+        </div>
+      )}
     </SectionWrapper>
   );
 }
