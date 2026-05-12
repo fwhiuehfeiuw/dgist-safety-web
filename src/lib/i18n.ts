@@ -29,7 +29,7 @@ export const translations = {
     heroTitle: 'Safety & Security Team',
     heroSubtitle: '안전보안팀',
     heroSlogan: '매월 4일은 안전점검의 날',
-    heroDesc: 'DGIST 구성원의 안전한 연구환경을 위해\n안전·보건·보안 업무를 수행합니다.',
+    heroDesc: 'DGIST의 안전한 캠퍼스 환경 조성을 위해\n안전·보건·보안 업무를 수행합니다.',
     // 섹션 타이틀
     quickLinksTitle: '바로가기',
     newsTitle: 'DGIST 안전 뉴스',

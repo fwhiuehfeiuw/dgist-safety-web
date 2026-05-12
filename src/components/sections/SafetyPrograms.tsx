@@ -180,8 +180,8 @@ export default function SafetyPrograms() {
             </p>
             <p className="text-xs md:text-sm text-[#888] leading-relaxed">
               {lang === 'ko'
-                ? '실험실 현장의 목소리에서 출발해 만든 DGIST만의 안전관리 체계.'
-                : "Built from real lab-floor needs — DGIST's own safety management system."}
+                ? '구성원의 목소리에서 출발해 만든 DGIST만의 안전관리 체계.'
+                : "Built from our members' voices — DGIST's own safety management system."}
             </p>
           </div>
         </div>

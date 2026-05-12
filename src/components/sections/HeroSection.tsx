@@ -28,10 +28,142 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full bg-gradient-to-br from-[#002855] via-[#003876] to-[#002855] overflow-hidden">
+    <section className="relative w-full bg-gradient-to-b from-[#2570E0] to-[#0A4FAC] overflow-hidden">
       {/* 배경 장식 원 */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full translate-x-1/3 translate-y-1/3" />
+
+      {/* 별빛 파티클 — 미세한 흰 점들 (풍부하게) */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* 절차적 별 — 9x14 그리드, 각 셀에 jitter */}
+        {Array.from({ length: 14 * 9 }).map((_, i) => {
+          const row = Math.floor(i / 14);
+          const col = i % 14;
+          const jx = ((i * 37) % 100) / 100 - 0.5; // -0.5~0.5
+          const jy = ((i * 53) % 100) / 100 - 0.5;
+          const sizes = [1, 1, 1, 2, 2, 3];
+          const opacities = [0.3, 0.4, 0.5, 0.5, 0.6, 0.7, 0.8];
+          const size = sizes[i % sizes.length];
+          const opacity = opacities[(i * 7) % opacities.length];
+          return (
+            <span
+              key={`g-${i}`}
+              className="absolute rounded-full bg-white animate-pulse"
+              style={{
+                top: `${row * (100 / 9) + jy * 6 + 2}%`,
+                left: `${col * (100 / 14) + jx * 5 + 1}%`,
+                width: `${size}px`,
+                height: `${size}px`,
+                opacity,
+                animationDuration: `${2 + (i % 5)}s`,
+                animationDelay: `${(i % 8) * 0.25}s`,
+                boxShadow: `0 0 ${size * 2}px rgba(255,255,255,${opacity * 0.6})`,
+              }}
+            />
+          );
+        })}
+        {[
+          // 상단
+          { top: '4%', left: '6%', size: 2, opacity: 0.7 },
+          { top: '8%', left: '14%', size: 1, opacity: 0.5 },
+          { top: '6%', left: '22%', size: 1, opacity: 0.4 },
+          { top: '11%', left: '30%', size: 2, opacity: 0.6 },
+          { top: '5%', left: '38%', size: 1, opacity: 0.5 },
+          { top: '14%', left: '44%', size: 1, opacity: 0.4 },
+          { top: '7%', left: '52%', size: 2, opacity: 0.7 },
+          { top: '12%', left: '60%', size: 1, opacity: 0.5 },
+          { top: '4%', left: '68%', size: 2, opacity: 0.6 },
+          { top: '9%', left: '76%', size: 3, opacity: 0.8 },
+          { top: '13%', left: '84%', size: 1, opacity: 0.4 },
+          { top: '6%', left: '92%', size: 2, opacity: 0.6 },
+          // 상중
+          { top: '18%', left: '10%', size: 3, opacity: 0.7 },
+          { top: '22%', left: '18%', size: 1, opacity: 0.5 },
+          { top: '20%', left: '26%', size: 1, opacity: 0.4 },
+          { top: '25%', left: '34%', size: 2, opacity: 0.6 },
+          { top: '19%', left: '42%', size: 1, opacity: 0.3 },
+          { top: '24%', left: '50%', size: 1, opacity: 0.5 },
+          { top: '21%', left: '58%', size: 2, opacity: 0.6 },
+          { top: '26%', left: '66%', size: 1, opacity: 0.4 },
+          { top: '17%', left: '74%', size: 2, opacity: 0.7 },
+          { top: '23%', left: '82%', size: 1, opacity: 0.5 },
+          { top: '20%', left: '90%', size: 1, opacity: 0.4 },
+          // 중단
+          { top: '32%', left: '5%', size: 1, opacity: 0.5 },
+          { top: '36%', left: '13%', size: 2, opacity: 0.6 },
+          { top: '34%', left: '21%', size: 1, opacity: 0.4 },
+          { top: '38%', left: '28%', size: 1, opacity: 0.3 },
+          { top: '33%', left: '36%', size: 2, opacity: 0.5 },
+          { top: '40%', left: '44%', size: 1, opacity: 0.4 },
+          { top: '37%', left: '52%', size: 1, opacity: 0.5 },
+          { top: '35%', left: '60%', size: 2, opacity: 0.6 },
+          { top: '39%', left: '68%', size: 1, opacity: 0.4 },
+          { top: '33%', left: '76%', size: 3, opacity: 0.7 },
+          { top: '41%', left: '84%', size: 1, opacity: 0.5 },
+          { top: '36%', left: '92%', size: 2, opacity: 0.6 },
+          // 중하
+          { top: '48%', left: '8%', size: 2, opacity: 0.6 },
+          { top: '52%', left: '16%', size: 1, opacity: 0.4 },
+          { top: '50%', left: '24%', size: 1, opacity: 0.5 },
+          { top: '55%', left: '32%', size: 2, opacity: 0.6 },
+          { top: '49%', left: '40%', size: 1, opacity: 0.3 },
+          { top: '53%', left: '48%', size: 1, opacity: 0.4 },
+          { top: '51%', left: '56%', size: 2, opacity: 0.5 },
+          { top: '57%', left: '64%', size: 1, opacity: 0.4 },
+          { top: '50%', left: '72%', size: 3, opacity: 0.6 },
+          { top: '54%', left: '80%', size: 1, opacity: 0.5 },
+          { top: '49%', left: '88%', size: 2, opacity: 0.6 },
+          // 하단
+          { top: '63%', left: '4%', size: 1, opacity: 0.5 },
+          { top: '67%', left: '12%', size: 2, opacity: 0.6 },
+          { top: '65%', left: '20%', size: 1, opacity: 0.4 },
+          { top: '70%', left: '28%', size: 1, opacity: 0.3 },
+          { top: '66%', left: '36%', size: 2, opacity: 0.5 },
+          { top: '72%', left: '44%', size: 1, opacity: 0.4 },
+          { top: '68%', left: '52%', size: 1, opacity: 0.5 },
+          { top: '65%', left: '60%', size: 2, opacity: 0.6 },
+          { top: '71%', left: '68%', size: 1, opacity: 0.4 },
+          { top: '64%', left: '76%', size: 1, opacity: 0.5 },
+          { top: '69%', left: '84%', size: 2, opacity: 0.6 },
+          { top: '66%', left: '92%', size: 1, opacity: 0.4 },
+          // 최하단
+          { top: '80%', left: '8%', size: 2, opacity: 0.6 },
+          { top: '85%', left: '18%', size: 1, opacity: 0.4 },
+          { top: '82%', left: '26%', size: 1, opacity: 0.5 },
+          { top: '88%', left: '36%', size: 2, opacity: 0.5 },
+          { top: '83%', left: '46%', size: 1, opacity: 0.4 },
+          { top: '90%', left: '54%', size: 1, opacity: 0.5 },
+          { top: '86%', left: '62%', size: 2, opacity: 0.6 },
+          { top: '92%', left: '70%', size: 1, opacity: 0.4 },
+          { top: '81%', left: '80%', size: 3, opacity: 0.7 },
+          { top: '88%', left: '88%', size: 1, opacity: 0.5 },
+          { top: '84%', left: '96%', size: 2, opacity: 0.6 },
+          // 미세한 점들 (작은 사이즈, 낮은 opacity)
+          { top: '2%', left: '50%', size: 1, opacity: 0.3 },
+          { top: '15%', left: '64%', size: 1, opacity: 0.3 },
+          { top: '28%', left: '12%', size: 1, opacity: 0.3 },
+          { top: '42%', left: '78%', size: 1, opacity: 0.3 },
+          { top: '58%', left: '40%', size: 1, opacity: 0.3 },
+          { top: '74%', left: '56%', size: 1, opacity: 0.3 },
+          { top: '94%', left: '24%', size: 1, opacity: 0.3 },
+          { top: '94%', left: '78%', size: 1, opacity: 0.3 },
+        ].map((s, i) => (
+          <span
+            key={i}
+            className="absolute rounded-full bg-white animate-pulse"
+            style={{
+              top: s.top,
+              left: s.left,
+              width: `${s.size}px`,
+              height: `${s.size}px`,
+              opacity: s.opacity,
+              animationDuration: `${2 + (i % 4)}s`,
+              animationDelay: `${(i % 5) * 0.3}s`,
+              boxShadow: `0 0 ${s.size * 2}px rgba(255,255,255,${s.opacity * 0.6})`,
+            }}
+          />
+        ))}
+      </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 md:pt-24 md:pb-14 lg:pt-28 lg:pb-16">
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
@@ -55,23 +187,18 @@ export default function HeroSection() {
               </span>
             </motion.div>
 
-            {/* 부제목 */}
-            <p className="text-[#5B9BD5] font-medium text-base md:text-lg mb-3 tracking-wide">
-              {tr.heroSubtitle}
-            </p>
-
             {/* 메인 타이틀 — supanova: 큰 디스플레이, tight tracking */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-4 break-keep text-balance">
               {tr.heroTitle}
             </h1>
 
             {/* 설명 */}
-            <p className="text-white/75 text-sm md:text-base leading-relaxed mb-6 whitespace-pre-line break-keep max-w-xl">
+            <p className="text-white text-sm md:text-base font-medium leading-relaxed mb-6 whitespace-pre-line break-keep max-w-xl drop-shadow-[0_1px_2px_rgba(0,0,0,0.25)]">
               {tr.heroDesc}
             </p>
 
             {/* 바로가기 라벨 */}
-            <p className="text-white/50 text-xs font-medium uppercase tracking-widest mb-2">
+            <p className="text-white/80 text-xs font-bold uppercase tracking-widest mb-2">
               {lang === 'ko' ? '바로가기' : 'Quick Links'}
             </p>
 
@@ -82,7 +209,7 @@ export default function HeroSection() {
                 href={HERO_CTA.primary.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 bg-white text-[#003876] font-semibold text-base pl-7 pr-2 py-2 rounded-full shadow-[0_10px_40px_-10px_rgba(0,102,204,0.6)] transition-all duration-500 ease-spring hover:shadow-[0_15px_50px_-10px_rgba(0,102,204,0.9)]"
+                className="group inline-flex items-center gap-3 bg-white text-[#003876] font-extrabold text-lg md:text-xl pl-7 pr-2 py-2.5 rounded-full shadow-[0_10px_40px_-10px_rgba(0,102,204,0.6)] tracking-tight transition-all duration-500 ease-spring hover:shadow-[0_15px_50px_-10px_rgba(0,102,204,0.9)]"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -97,7 +224,7 @@ export default function HeroSection() {
                 href={HERO_CTA.secondary.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-white/70 hover:text-white font-medium text-base px-1 py-2 transition-colors self-center"
+                className="group inline-flex items-center gap-1.5 text-white/90 hover:text-white font-semibold text-base px-1 py-2 transition-colors self-center"
                 whileHover={{ x: 2 }}
               >
                 <span className="border-b border-white/30 group-hover:border-white pb-0.5 transition-colors">
@@ -135,8 +262,8 @@ export default function HeroSection() {
                     />
                   </div>
                   <div className="text-left">
-                    <div className="inline-flex items-center gap-1 text-[9px] text-white/55 font-bold tracking-[0.18em] uppercase">
-                      <ScanLine className="w-2.5 h-2.5" />
+                    <div className="inline-flex items-center gap-1 text-xs text-white font-bold tracking-[0.18em] uppercase">
+                      <ScanLine className="w-3.5 h-3.5" />
                       Scan
                     </div>
                     <div className="text-xs text-white/90 font-medium leading-tight mt-0.5">
@@ -152,18 +279,18 @@ export default function HeroSection() {
               href="https://www.dgist.ac.kr"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-white/60 hover:text-white text-sm mt-4 transition-colors"
+              className="inline-flex items-center gap-2 text-white/90 hover:text-white text-base md:text-lg font-semibold mt-4 transition-colors"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
             >
-              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                 <path d="M2 12h20" />
               </svg>
               {lang === 'ko' ? 'DGIST 홈페이지' : 'DGIST Homepage'}
-              <ArrowTopRightOnSquareIcon className="w-3.5 h-3.5" />
+              <ArrowTopRightOnSquareIcon className="w-4 h-4" />
             </motion.a>
           </motion.div>
 
