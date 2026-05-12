@@ -70,7 +70,7 @@ const PROGRAMS: Program[] = [
   {
     titleKo: '안전보호구 및 안전장비 상시 지원',
     titleEn: 'Year-Round PPE & Equipment Support',
-    descKo: '마스크·보안경·장갑·흄후드 필름·가스감지기·Spill Kit 연중 지원',
+    descKo: '마스크·보안경·방폭필름 등 연중 상시 지원',
     descEn: 'Continuous supply of PPE and lab safety equipment',
     category: '지원·서비스',
     categoryEn: 'Support · Service',
