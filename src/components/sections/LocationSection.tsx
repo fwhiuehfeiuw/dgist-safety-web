@@ -19,8 +19,8 @@ export default function LocationSection() {
   const tr = translations[lang];
 
   return (
-    <SectionWrapper id="location" bgColor="bg-white">
-      <div className="max-w-6xl mx-auto bg-[#FAFAFA] rounded-3xl border border-gray-100 px-6 md:px-10 py-8 md:py-10">
+    <SectionWrapper id="location" bgColor="bg-[#F7F9FC]">
+      <div className="max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl border border-gray-100 px-6 md:px-10 py-5 md:py-7">
       <SectionHeader
         illustration={<UndrawAddress primaryColor="#003876" height="100%" />}
         eyebrow="Visit Us"
@@ -31,19 +31,27 @@ export default function LocationSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Google Maps iframe */}
         <motion.div
-          className="rounded-xl overflow-hidden shadow-sm border border-gray-100"
+          className="relative rounded-xl overflow-hidden shadow-sm border border-gray-100 bg-gradient-to-br from-[#EEF2F7] to-[#F7F9FC]"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          style={{ minHeight: 350 }}
         >
+          {/* 로딩 중 플레이스홀더 */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="flex flex-col items-center gap-2 text-[#003876]/40">
+              <MapPin className="w-8 h-8 animate-pulse" />
+              <span className="text-xs font-medium">지도를 불러오는 중...</span>
+            </div>
+          </div>
           <iframe
             src={LOCATION.mapEmbedUrl}
             width="100%"
             height="350"
-            style={{ border: 0 }}
+            style={{ border: 0, position: 'relative', zIndex: 1 }}
             allowFullScreen
-            loading="lazy"
+            loading="eager"
             referrerPolicy="no-referrer-when-downgrade"
             title="DGIST Location Map"
           />

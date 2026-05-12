@@ -23,7 +23,7 @@ export default function SectionWrapper({
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: true, margin: '-100px' }}
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-      className={`py-10 md:py-14 lg:py-16 ${bgColor} ${className}`}
+      className={`py-6 md:py-8 lg:py-10 ${bgColor} ${className}`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {children}

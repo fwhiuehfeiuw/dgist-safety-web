@@ -32,7 +32,7 @@ export default function SectionHeader({
     <motion.div
       whileHover={{ y: -3 }}
       transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-      className={`group relative flex items-center gap-5 mb-10 -mx-3 -my-3 px-3 py-3 rounded-2xl ring-1 ring-transparent hover:ring-[#003876]/15 hover:bg-gradient-to-r hover:from-[#F4F8FE] hover:to-white hover:shadow-[0_10px_30px_-12px_rgba(0,56,118,0.25)] transition-all duration-300 cursor-default ${className}`}
+      className={`group relative flex items-center gap-5 mb-6 -mx-3 -my-2 px-3 py-2 rounded-2xl ring-1 ring-transparent hover:ring-[#003876]/15 hover:bg-gradient-to-r hover:from-[#F4F8FE] hover:to-white hover:shadow-[0_10px_30px_-12px_rgba(0,56,118,0.25)] transition-all duration-300 cursor-default ${className}`}
     >
       {/* 일러스트 박스 */}
       <div

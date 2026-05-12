@@ -122,10 +122,10 @@ export default function SafetyPrograms() {
   const tr = translations[lang];
 
   return (
-    <SectionWrapper id="programs" bgColor="bg-[#F5F5F5]">
+    <SectionWrapper id="programs" bgColor="bg-[#EEF2F7]">
       {/* 단일 컨테이너 — 배너 + 11개 리스트를 한 카드로 묶음 */}
       <motion.div
-        className="max-w-5xl mx-auto bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden"
+        className="max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl shadow-sm border border-gray-100 overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -196,7 +196,7 @@ export default function SafetyPrograms() {
         </div>
 
         {/* 하단: 11개 제도 그리드 카드 — 회색 배경에 흰 카드들 */}
-        <div className="bg-[#FAFAFA] px-6 md:px-10 py-8 md:py-10">
+        <div className="bg-[#EEF2F7] px-6 md:px-10 py-5 md:py-7">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {PROGRAMS.map((p, i) => {
               const s = catStyles[p.category];

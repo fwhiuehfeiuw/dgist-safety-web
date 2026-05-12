@@ -52,7 +52,7 @@ const SCREENS = [
     bg: 'from-[#003876] to-[#0066CC]',
     Icon: Shield,
     emoji: '🥼',
-    caption: '연구실 안전은 작은 습관에서. 매월 4일은 안전점검의 날',
+    caption: '안전은 작은 습관에서. 매월 4일은 안전점검의 날',
     tags: ['#연구실안전', '#중대재해ZERO', '#매월4일'],
     bars: [55, 78, 62, 88, 72, 95, 68, 90, 74, 92],
     chartLabel: '점검 완료율',
@@ -65,7 +65,7 @@ const SCREENS = [
     bg: 'from-[#1F6B43] to-[#2E8B57]',
     Icon: Heart,
     emoji: '🫀',
-    caption: '건강한 연구실, 건강한 연구원. 의무실은 언제든 열려 있어요',
+    caption: '건강한 캠퍼스 환경 조성. 의무실은 언제든 열려 있어요',
     tags: ['#산업보건', '#건강관리실', '#MSDS'],
     bars: [40, 55, 48, 70, 82, 65, 88, 92, 78, 60],
     chartLabel: '건강진단 추이',
@@ -339,8 +339,8 @@ export default function TeamOverview() {
   const { lang } = useLanguage();
 
   return (
-    <SectionWrapper id="team-overview" bgColor="bg-[#F5F5F5]">
-      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-8 md:py-10">
+    <SectionWrapper id="team-overview" bgColor="bg-[#EEF2F7]">
+      <div className="max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-5 md:py-7">
         <SectionHeader
           illustration={<UndrawTeamSpirit primaryColor="#003876" height="100%" />}
           eyebrow="Our Team"

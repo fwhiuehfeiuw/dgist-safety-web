@@ -57,8 +57,8 @@ export default function SafetyManagement() {
   const { lang } = useLanguage();
 
   return (
-    <SectionWrapper id="safety-management" bgColor="bg-[#F5F5F5]">
-      <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-8 md:py-10">
+    <SectionWrapper id="safety-management" bgColor="bg-[#EEF2F7]">
+      <div className="max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-5 md:py-7">
       <SectionHeader
         illustration={<UndrawSafe primaryColor="#003876" height="100%" />}
         eyebrow="Management System"
@@ -74,7 +74,7 @@ export default function SafetyManagement() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <div className="relative bg-gradient-to-br from-[#002855] via-[#003876] to-[#0066CC] px-6 md:px-12 py-8 md:py-10 overflow-hidden">
+        <div className="relative bg-gradient-to-br from-[#002855] via-[#003876] to-[#0066CC] px-6 md:px-12 py-5 md:py-7 overflow-hidden">
           {/* 배경 — 도트 그리드 패턴 (모던) */}
           <div
             className="absolute inset-0 opacity-[0.15] pointer-events-none"
@@ -211,7 +211,7 @@ export default function SafetyManagement() {
             return (
               <motion.div
                 key={section.key}
-                className="group relative bg-[#F5F5F5] rounded-2xl p-8 ring-1 ring-transparent hover:ring-[color:var(--accent)] hover:shadow-xl hover:bg-white overflow-hidden transition-all duration-300"
+                className="group relative bg-[#EEF2F7] rounded-2xl p-8 ring-1 ring-transparent hover:ring-[color:var(--accent)] hover:shadow-xl hover:bg-[#FAFBFD] overflow-hidden transition-all duration-300"
                 style={{ ['--accent' as never]: accent }}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}

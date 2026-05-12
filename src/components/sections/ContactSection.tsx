@@ -84,8 +84,8 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <SectionWrapper id="contact" bgColor="bg-white">
-      <div className="max-w-6xl mx-auto bg-[#FAFAFA] rounded-3xl border border-gray-100 px-6 md:px-10 py-8 md:py-10">
+    <SectionWrapper id="contact" bgColor="bg-[#F7F9FC]">
+      <div className="max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl border border-gray-100 px-6 md:px-10 py-5 md:py-7">
       <SectionHeader
         illustration={<UndrawConversation primaryColor="#003876" height="100%" />}
         eyebrow="Get in Touch"

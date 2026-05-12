@@ -37,7 +37,7 @@ export default function QuickLinksSection() {
   const tr = translations[lang];
 
   return (
-    <SectionWrapper id="quick-links" bgColor="bg-[#F5F5F5]">
+    <SectionWrapper id="quick-links" bgColor="bg-[#EEF2F7]">
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-8">
         <div className="w-24 h-24 md:w-28 md:h-28 flex-shrink-0">
           <UndrawWelcome primaryColor="#003876" height="100%" />
