@@ -122,7 +122,7 @@ export default function SafetyPrograms() {
   const tr = translations[lang];
 
   return (
-    <SectionWrapper id="programs" bgColor="bg-[#EEF2F7]">
+    <SectionWrapper id="programs" bgColor="bg-[#EEF2F7]" accentColor="#E67E22">
       {/* 단일 컨테이너 — 배너 + 11개 리스트를 한 카드로 묶음 */}
       <motion.div
         className="relative max-w-6xl mx-auto bg-[#FAFBFD] rounded-3xl shadow-[0_10px_40px_-12px_rgba(230,126,34,0.25)] border-[3px] border-[#E67E22]/55 overflow-hidden"

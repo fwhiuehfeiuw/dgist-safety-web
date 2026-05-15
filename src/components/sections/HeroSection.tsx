@@ -28,7 +28,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-[#2570E0] to-[#0A4FAC] overflow-hidden">
+    <section id="hero" className="relative w-full bg-gradient-to-b from-[#2570E0] to-[#0A4FAC] overflow-hidden">
       {/* 배경 장식 원 */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full translate-x-1/3 translate-y-1/3" />

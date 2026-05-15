@@ -349,7 +349,7 @@ export default function TeamOverview() {
   const { lang } = useLanguage();
 
   return (
-    <SectionWrapper id="team-overview" bgColor="bg-[#EEF2F7]">
+    <SectionWrapper id="team-overview" bgColor="bg-[#EEF2F7]" accentColor="#0066CC">
       <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-[#E8F0FE] via-[#F4F8FE] to-[#FAFCFF] rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-5 md:py-7 overflow-hidden">
         {/* 코너 글로우 — 부서 업무: 안전(블루) + 보건(에메랄드) + 보안(보라) 삼색 */}
         <div aria-hidden className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-[#5B9BD5]/25 blur-3xl pointer-events-none" />

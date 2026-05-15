@@ -58,7 +58,7 @@ export default function SafetyManagement() {
   const [zoomImage, setZoomImage] = useState<{ src: string; alt: string } | null>(null);
 
   return (
-    <SectionWrapper id="safety-management" bgColor="bg-[#EEF2F7]">
+    <SectionWrapper id="safety-management" bgColor="bg-[#EEF2F7]" accentColor="#003876">
       <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-[#E0EAFB] via-[#F0F5FE] to-[#FAFCFF] rounded-3xl shadow-sm border border-gray-100 px-6 md:px-10 py-5 md:py-7 overflow-hidden">
         {/* 코너 글로우 — 경영체계: DGIST 네이비 + 스카이 */}
         <div aria-hidden className="absolute -top-28 -right-20 w-80 h-80 rounded-full bg-[#003876]/15 blur-3xl pointer-events-none" />

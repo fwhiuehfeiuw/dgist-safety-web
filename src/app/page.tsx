@@ -5,6 +5,7 @@ import { LanguageContext, type Language } from '@/lib/i18n';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import MobileFAB from '@/components/layout/MobileFAB';
+import ScrollNav from '@/components/layout/ScrollNav';
 import HeroSection from '@/components/sections/HeroSection';
 import TeamOverview from '@/components/sections/TeamOverview';
 import ContactSection from '@/components/sections/ContactSection';
@@ -40,6 +41,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileFAB />
+      <ScrollNav />
     </LanguageContext.Provider>
   );
 }

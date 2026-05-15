@@ -84,7 +84,7 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <SectionWrapper id="contact" bgColor="bg-[#F7F9FC]">
+    <SectionWrapper id="contact" bgColor="bg-[#F7F9FC]" accentColor="#2E8B57">
       <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-[#EAF7F0] via-[#F4F8FE] to-[#FAF7FF] rounded-3xl border border-gray-100 px-6 md:px-10 py-5 md:py-7 overflow-hidden">
         {/* 코너 글로우 — 연락처: 따뜻한 톤 (안전/보건/보안 컬러) */}
         <div aria-hidden className="absolute -top-20 -left-16 w-72 h-72 rounded-full bg-[#2E8B57]/15 blur-3xl pointer-events-none" />

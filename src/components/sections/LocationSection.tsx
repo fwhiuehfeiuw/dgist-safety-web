@@ -19,7 +19,7 @@ export default function LocationSection() {
   const tr = translations[lang];
 
   return (
-    <SectionWrapper id="location" bgColor="bg-[#F7F9FC]">
+    <SectionWrapper id="location" bgColor="bg-[#F7F9FC]" accentColor="#7B68EE">
       <div className="relative max-w-6xl mx-auto bg-gradient-to-br from-[#F4F1EA] via-[#F8F6F0] to-[#FCFBFA] rounded-3xl border border-gray-100 px-6 md:px-10 py-5 md:py-7 overflow-hidden">
         {/* 코너 글로우 — 오시는 길: 흙·따스한 어스 톤 */}
         <div aria-hidden className="absolute -top-20 -left-16 w-72 h-72 rounded-full bg-[#D4A574]/15 blur-3xl pointer-events-none" />
