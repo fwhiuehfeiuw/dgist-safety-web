@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: 'DGIST 안전보안팀',
   description: 'DGIST 안전보안팀 소개 랜딩페이지',
   robots: 'noindex, nofollow',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
